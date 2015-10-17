@@ -25,7 +25,7 @@ public class CalculateDistTest {
         trash.setLongitude(-6.364561);
         int result = trash.CalculateDist(currentlon,currentlat);
 
-        assertEquals(result,0);
+        assertEquals(result,-1);
 
     }
 }
