@@ -1,6 +1,3 @@
-/**
- * Created by Yanuar Wicaksana on 10/15/15.
- */
 
 import java.io.File;
 import java.util.*;
