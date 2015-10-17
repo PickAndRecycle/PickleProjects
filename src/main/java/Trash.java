@@ -31,7 +31,7 @@ public class Trash {
     }
 
     public void test(){
-        System.out.println("test");
+        System.out.println("tests");
     }
 
     public int getId() {
