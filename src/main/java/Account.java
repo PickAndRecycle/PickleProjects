@@ -8,13 +8,11 @@ public class Account {
     Double latitude, longitude;
     File profile_picture;
 
-    public Account(int account_id, String username, String password, String phone_number, Double latitude, Double longitude, File profile_picture){
+    public Account(int account_id, String username, String password, String phone_number, File profile_picture){
         this.account_id = account_id;
         this.username = username;
         this.password = password;
         this.phone_number = phone_number;
-        this.latitude = latitude;
-        this.longitude = longitude;
         this.profile_picture = profile_picture;
     }
     

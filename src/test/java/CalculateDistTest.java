@@ -15,17 +15,18 @@ public class CalculateDistTest {
     @Test
     public void testCalculateDist() throws Exception {
         int rad = 6371;
-        Double currentlon = -6.364561;
-        Double currentlat = 106.828679;
+        Double currentlon = 106.78314;
+        Double currentlat = -6.265633;
         File file = null;
         Time time = new Time(12313);
 
         Trash trash = new Trash(1,"trash",2,file,106.828679,-6.364561,time,false);
-        trash.setLatitude(106.828679);
-        trash.setLongitude(-6.364561);
-        int result = trash.CalculateDist(currentlon,currentlat);
+        trash.setLatitude(-6.368737);
+        trash.setLongitude(106.906586);
+        int result = trash.CalculateDist(currentlat,currentlon);
 
-        assertEquals(result,-1);
+        //This test was based on real life location from Cibubur to Pondok Indah
+        assertEquals(result,17);
 
     }
 }

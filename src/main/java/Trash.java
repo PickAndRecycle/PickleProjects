@@ -29,6 +29,9 @@ public class Trash {
         this.timestamp = timestamp;
         this.report = report;
     }
+    public Trash(){
+
+    }
 
     public void test(){
         System.out.println("tests");
@@ -98,7 +101,21 @@ public class Trash {
         this.report = report;
     }
 
-    public int CalculateDist(Double lon, Double lat){
-        return -1;
+    public int CalculateDist(Double lat, Double lon){
+        double theta = this.longitude - lon;
+        double dist = Math.sin(deg2rad(this.latitude)) * Math.sin(deg2rad(lat)) +
+                Math.cos(deg2rad(this.latitude)) * Math.cos(deg2rad(lat)) * Math.cos(deg2rad(theta));
+        dist = Math.acos(dist);
+        dist = rad2deg(dist);
+        dist = dist * 60 * 1.1515;
+        dist = dist * 1.609344;
+        return (int) dist;
+    }
+    private static double deg2rad(double deg) {
+        return (deg * Math.PI / 180.0);
+    }
+
+    private static double rad2deg(double rad) {
+        return (rad * 180 / Math.PI);
     }
 }
