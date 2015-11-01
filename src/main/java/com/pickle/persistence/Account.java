@@ -1,4 +1,4 @@
-package com.pickle.service;
+package com.pickle.persistence;
 
 import java.io.File;
 
