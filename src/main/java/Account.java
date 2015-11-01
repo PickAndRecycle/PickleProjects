@@ -1,5 +1,3 @@
-package com.pickle.persistence;
-
 import java.io.File;
 
 public class Account {

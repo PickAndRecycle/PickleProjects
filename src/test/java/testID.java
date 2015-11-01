@@ -2,7 +2,6 @@ import static org.junit.Assert.*;
 
 import java.io.File;
 
-import com.pickle.persistence.Account;
 import org.junit.Test;
 
 
