@@ -2,6 +2,7 @@ import static org.junit.Assert.*;
 
 import java.io.File;
 
+import com.pickle.service.Account;
 import org.junit.Test;
 
 
