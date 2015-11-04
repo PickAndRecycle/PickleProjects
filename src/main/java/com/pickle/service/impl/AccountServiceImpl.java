@@ -55,7 +55,7 @@ public class AccountServiceImpl implements AccountService {
     public Boolean delete(String s) {
         Account account = accountRespository.findBySecureId(s);
 
-        if (account = null) {
+        if (account == null) {
             throw new ServiceException("Account not found: " + s);
         }
 
