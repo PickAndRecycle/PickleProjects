@@ -32,4 +32,24 @@ com/pickle/converter/IBaseVoConverter.class
 com/pickle/rest/AbstractBaseController$AbstractRequestHandler.class
 OtherWaste.class
 com/pickle/persistence/domain/Base.class
+=======
+com/pickle/rest/TrashController.class
+com/pickle/service/BaseService.class
+com/pickle/exception/AuthorizationException.class
+Categories$1.class
+com/pickle/vo/ArticleVO.class
+Categories.class
+Account.class
+com/pickle/exception/GlobalDefaultExceptionHandler.class
+com/pickle/persistence/domain/Account.class
+com/pickle/config/WebMvcConfig.class
+com/pickle/vo/ResultVO.class
+Trash.class
+com/pickle/persistence/repository/AccountRespository.class
+com/pickle/exception/ServiceException.class
+com/pickle/service/TrashService.class
+com/pickle/config/SwaggerConfig.class
+com/pickle/rest/AbstractBaseController$AbstractRequestHandler.class
+OtherWaste.class
+>>>>>>> 9f0c6f468faf9683565dd2ab51a9028407acc8fe
 com/pickle/rest/AbstractBaseController.class
