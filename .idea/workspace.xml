@@ -19,14 +19,17 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/vcs.xml" afterPath="$PROJECT_DIR$/.idea/vcs.xml" />
 =======
     <list default="true" id="16d72d60-5a5d-40e4-9285-d1032edbe801" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/pickle/persistence/Account.class" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/pickle/util/StatusCode.class" afterPath="$PROJECT_DIR$/target/classes/com/pickle/util/StatusCode.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/test-classes/testID.class" afterPath="$PROJECT_DIR$/target/test-classes/testID.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/pickle/util/StatusCode.java" afterPath="$PROJECT_DIR$/src/main/java/com/pickle/util/StatusCode.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/pickle/persistence/domain/Trash.java" afterPath="$PROJECT_DIR$/src/main/java/com/pickle/persistence/domain/Trash.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/pickle/service/impl/TrashServiceImpl.java" afterPath="$PROJECT_DIR$/src/main/java/com/pickle/service/impl/TrashServiceImpl.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/pickle/vo/TrashVO.java" afterPath="$PROJECT_DIR$/src/main/java/com/pickle/vo/TrashVO.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/pickle/rest/AbstractBaseController.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/pickle/exception/AuthorizationException.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/pickle/service/BaseService.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/pickle/exception/GlobalDefaultExceptionHandler.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/pickle/vo/ResultVO.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/pickle/exception/ServiceException.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/pickle/config/SwaggerConfig.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/pickle/rest/TrashController.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/pickle/service/TrashService.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/pickle/service/impl/TrashServiceImpl.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/pickle/config/WebMvcConfig.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/META-INF/persistence.xml" afterPath="$PROJECT_DIR$/src/main/resources/META-INF/persistence.xml" />
 >>>>>>> 356c6bef5b41e527aac6ab044b3acc93a7e19b2e
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
