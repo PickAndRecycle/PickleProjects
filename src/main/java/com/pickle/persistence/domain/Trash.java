@@ -21,7 +21,7 @@ import java.security.SecureRandom;
 public class Trash extends Base {
 
     @Column(name = "CATEGORIES")
-    private TrashCategories categories;
+    private String categories;
 
     @Column(name = "USERNAME")
     private String username;
@@ -51,7 +51,7 @@ public class Trash extends Base {
     private String title;
 
     @Column(name = "CONDITION")
-    private UnusedCondition condition;
+    private String condition;
 
     @Column(name = "SIZE")
     private int size;
@@ -59,15 +59,15 @@ public class Trash extends Base {
     @PrePersist
     public void prePersist(){
         super.prePersist();
+
     }
 
-    public String getCategories(){
-        return categories.toString();
+    public TrashCategories getCategories(){
+        return TrashCategories.valueOf(categories);
     }
 
-    public void setCategories(String categories){
-        TrashCategories categories1 = TrashCategories.valueOf(categories);
-        this.categories = categories1;
+    public void setCategories(TrashCategories categories){
+        this.categories = categories.toString();
     }
 
     public String getUsername(){
@@ -142,13 +142,12 @@ public class Trash extends Base {
         this.title = title;
     }
 
-    public String getCondition(){
-        return condition.toString();
+    public UnusedCondition getCondition(){
+        return UnusedCondition.valueOf(condition);
     }
 
-    public void setCondition(String condition){
-        UnusedCondition condition1 = UnusedCondition.valueOf(condition);
-        this.condition = condition1;
+    public void setCondition(UnusedCondition condition){
+        this.condition = condition.toString();
     }
 
     public int getSize(){

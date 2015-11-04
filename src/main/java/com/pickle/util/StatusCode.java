@@ -1,8 +1,6 @@
 package com.pickle.util;
 
-/**
- * Created by fani on 4/23/15.
- */
+
 public enum StatusCode {
 
     OK,

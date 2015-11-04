@@ -16,7 +16,7 @@ import java.util.Collection;
  * Created by Yanuar Wicaksana on 11/2/15.
  */
 
-/*
+
 @Service
 @Transactional(readOnly = true)
 public class TrashServiceImpl implements TrashService{
@@ -81,4 +81,4 @@ public class TrashServiceImpl implements TrashService{
         return null;
     }
 }
-*/
+

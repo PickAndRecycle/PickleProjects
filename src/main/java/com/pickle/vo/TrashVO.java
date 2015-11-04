@@ -2,13 +2,14 @@ package com.pickle.vo;
 
 import com.pickle.enums.TrashCategories;
 import com.pickle.enums.UnusedCondition;
+import com.pickle.persistence.domain.Trash;
 
 /**
  * Created by Yanuar Wicaksana on 11/1/15.
  */
 public class TrashVO extends BaseVO {
 
-    private TrashCategories categories;
+    private String categories;
     private String username;
     private int status;
     private String description;
@@ -18,16 +19,15 @@ public class TrashVO extends BaseVO {
     private double longitude;
     private boolean report;
     private String title;
-    private UnusedCondition condition;
+    private String condition;
     private int size;
 
-    public String getCategories(){
-        return categories.toString();
+    public TrashCategories getCategories(){
+        return TrashCategories.valueOf(categories);
     }
 
-    public void setCategories(String categories){
-        TrashCategories categories1 = TrashCategories.valueOf(categories);
-        this.categories = categories1;
+    public void setCategories(TrashCategories categories){
+        this.categories = categories.toString();
     }
 
     public String getUsername(){
@@ -102,13 +102,12 @@ public class TrashVO extends BaseVO {
         this.title = title;
     }
 
-    public String getCondition(){
-        return condition.toString();
+    public UnusedCondition getCondition(){
+        return UnusedCondition.valueOf(condition);
     }
 
-    public void setCondition(String condition){
-        UnusedCondition condition1 = UnusedCondition.valueOf(condition);
-        this.condition = condition1;
+    public void setCondition(UnusedCondition condition){
+        this.condition = condition.toString();
     }
 
     public int getSize(){
