@@ -20,18 +20,23 @@ public class BaseVO implements Serializable {
      */
     private String id;
 
+    @JsonIgnore
     private Date creationDate;
 
+    @JsonIgnore
     private String createdBy;
 
+    @JsonIgnore
     private Date modificationDate;
 
+    @JsonIgnore
     private String modifiedBy;
 
+    @JsonIgnore
     private Integer version;
 
 //    private Boolean active;
-
+    @JsonIgnore
     private Boolean deleted;
 
     public Integer getInternalId() {
