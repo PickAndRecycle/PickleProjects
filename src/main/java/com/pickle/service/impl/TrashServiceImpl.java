@@ -58,7 +58,14 @@ public class TrashServiceImpl implements TrashService{
 
     @Override
     public TrashVO findById(String s) {
-        return null;
+
+        Trash trash = trashRepository.findBySecureId(s);
+
+        if (trash == null) {
+            throw new ServiceException("Trash item not found: " + s);
+        }
+
+        return trashVoConverter.transferModelToVO(trash, null);
     }
 }
 
