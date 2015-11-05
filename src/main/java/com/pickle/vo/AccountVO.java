@@ -3,7 +3,7 @@ package com.pickle.vo;
 /**
  * Created by danieldeem on 11/2/2015.
  */
-public class AccountVO {
+public class AccountVO extends BaseVO {
 
     private String username;
     private String email;
