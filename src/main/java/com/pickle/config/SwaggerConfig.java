@@ -35,10 +35,10 @@ public class SwaggerConfig {
                 //This info will be used in Swagger. See realisation of ApiInfo for more details.
                 .swaggerGroup("sample")
                 .apiInfo(new ApiInfo(
-                        "Sample REST API",
-                        "Sample REST API based on the swagger 1.2 spec",
+                        "Pickle REST API",
+                        "Pickle REST API based on the swagger 1.2 spec",
                         "http://en.wikipedia.org/wiki/Terms_of_service",
-                        "dev@nostratech.com",
+                        "pickandrecycle@gmail.com",
                         "Apache 2.0",
                         "http://www.apache.org/licenses/LICENSE-2.0.html"
                 ))
@@ -46,7 +46,7 @@ public class SwaggerConfig {
                 .useDefaultResponseMessages(false)
                         //Here we specify URI patterns which will be included in Swagger docs. Use regex for this purpose.
                 .includePatterns(
-                        "/sample.*"
+                        "/trash.*"
                 )
                 .authorizationTypes(authorizationTypes())
                 .authorizationContext(authorizationContext())

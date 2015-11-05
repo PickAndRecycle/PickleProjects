@@ -6,6 +6,8 @@ import com.pickle.persistence.domain.Trash;
 import com.pickle.persistence.repository.TrashRepository;
 import com.pickle.service.TrashService;
 import com.pickle.vo.TrashVO;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -21,6 +23,9 @@ import java.util.Collection;
 @Transactional(readOnly = true)
 public class TrashServiceImpl implements TrashService{
 
+    public static final Logger logger = LoggerFactory.getLogger(TrashServiceImpl.class);
+
+
     @Autowired
     TrashVoConverter trashVoConverter;
 
@@ -30,43 +35,18 @@ public class TrashServiceImpl implements TrashService{
     @Override
     public TrashVO add(TrashVO vo) {
 
-        Trash trash = trashVoConverter.transferVOToModel(vo, null);
-
-        trashRepository.save(trash);
-
-        vo.setId(trash.getSecureId());
-
-        return vo;
+        return null;
     }
 
     @Override
     public TrashVO update(String s, TrashVO vo) {
 
-        Trash trash = trashRepository.findBySecureId(s);
-
-        trash = trashVoConverter.transferVOToModel(vo, trash);
-
-        trashRepository.saveAndFlush(trash);
-
-        return trashVoConverter.transferModelToVO(trash, null);
-
+        return null;
     }
 
     @Override
     public Boolean delete(String s) {
-        Trash trash = trashRepository.findBySecureId(s);
-
-        if (trash == null){
-            throw new ServiceException("Trash not found: " + s);
-        }
-
-        trashRepository.delete(trash.getId());
-
-        if(trashRepository.exists(trash.getId())){
-            return Boolean.TRUE;
-        } else{
-            return Boolean.FALSE;
-        }
+       return null;
     }
 
     @Override

@@ -1,15 +1,11 @@
 package com.pickle.persistence.domain;
 
-import com.pickle.enums.TrashCategories;
-import com.pickle.enums.UnusedCondition;
 import org.hibernate.annotations.DynamicUpdate;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.PrePersist;
 import javax.persistence.Table;
-import java.net.URL;
-import java.security.SecureRandom;
 
 /**
  * Created by Yanuar Wicaksana on 11/1/15.
@@ -39,10 +35,10 @@ public class Trash extends Base {
     private String photo_url;
 
     @Column(name = "LATITUDE")
-    private double latitude;
+    private int latitude;
 
     @Column(name = "LONGITUDE")
-    private double longitude;
+    private int longitude;
 
     @Column(name = "REPORT")
     private boolean report;
@@ -50,8 +46,8 @@ public class Trash extends Base {
     @Column(name = "TITLE", length = 30)
     private String title;
 
-    @Column(name = "CONDITION")
-    private String condition;
+    @Column(name = "TRASH_CONDITION")
+    private String trash_condition;
 
     @Column(name = "SIZE")
     private int size;
@@ -59,15 +55,20 @@ public class Trash extends Base {
     @PrePersist
     public void prePersist(){
         super.prePersist();
-
+        this.status = 0;
+        this.distance = 0;
+        this.latitude = 0;
+        this.longitude = 0;
+        this.report = false;
+        this.size = 0;
     }
 
-    public TrashCategories getCategories(){
-        return TrashCategories.valueOf(categories);
+    public String getCategories(){
+        return categories;
     }
 
-    public void setCategories(TrashCategories categories){
-        this.categories = categories.toString();
+    public void setCategories(String categories){
+        this.categories = categories;
     }
 
     public String getUsername(){
@@ -110,7 +111,7 @@ public class Trash extends Base {
         this.photo_url = photo_url;
     }
 
-    public Double getLatitude(){
+    public int getLatitude(){
         return latitude;
     }
 
@@ -118,7 +119,7 @@ public class Trash extends Base {
         this.latitude = latitude;
     }
 
-    public Double getLongitude(){
+    public int getLongitude(){
         return longitude;
     }
 
@@ -142,12 +143,12 @@ public class Trash extends Base {
         this.title = title;
     }
 
-    public UnusedCondition getCondition(){
-        return UnusedCondition.valueOf(condition);
+    public String getTrash_condition(){
+        return trash_condition;
     }
 
-    public void setCondition(UnusedCondition condition){
-        this.condition = condition.toString();
+    public void setTrash_condition(String trash_condition){
+        this.trash_condition = trash_condition;
     }
 
     public int getSize(){
@@ -161,7 +162,7 @@ public class Trash extends Base {
     @Override
     public String toString() {
         final StringBuffer sb = new StringBuffer("Trash{");
-        sb.append("categories='").append(getCategories()).append('\'');
+        sb.append("categories='").append(categories).append('\'');
         sb.append(", username='").append(username).append('\'');
         sb.append(", status=").append(status);
         sb.append(", description='").append(description).append('\'');
@@ -169,8 +170,9 @@ public class Trash extends Base {
         sb.append(", photo url='").append(photo_url).append('\'');
         sb.append(", latitude=").append(latitude);
         sb.append(", longitude=").append(longitude);
+        sb.append(", report=").append(report);
         sb.append(", title='").append(title).append('\'');
-        sb.append(", condition='").append(getCondition()).append('\'');
+        sb.append(", trash_condition='").append(trash_condition).append('\'');
         sb.append(", size='").append(size);
         return sb.toString();
     }

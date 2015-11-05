@@ -1,11 +1,21 @@
 package com.pickle.persistence.domain;
 
+import org.hibernate.annotations.DynamicUpdate;
+
 import javax.persistence.Column;
+import javax.persistence.Entity;
 import javax.persistence.PrePersist;
+import javax.persistence.Table;
 
 /**
  * Created by admin on 11/2/2015.
  */
+
+
+
+@Entity
+@Table(name= "ACCOUNT")
+@DynamicUpdate
 public class Account extends Base {
     @Column(name = "USERNAME")
     private String username;

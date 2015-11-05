@@ -4,6 +4,7 @@ import com.pickle.persistence.domain.Trash;
 import com.pickle.util.ExtendedSpringBeanUtil;
 import com.pickle.vo.TrashVO;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -11,6 +12,8 @@ import java.util.Collection;
 /**
  * Created by Yanuar Wicaksana on 11/1/15.
  */
+
+@Component
 public class TrashVoConverter implements IBaseVoConverter<TrashVO, Trash> {
 
     @Autowired
@@ -24,7 +27,10 @@ public class TrashVoConverter implements IBaseVoConverter<TrashVO, Trash> {
 
         ExtendedSpringBeanUtil.copySpecificProperties(vo, model,
                 new String[]{"categories", "username", "status", "description", "distance", "photo_url", "latitude", "longitude",
-                "title", "condition", "size"});
+                "report", "title", "trash_condition", "size"});
+        /*
+        ExtendedSpringBeanUtil.copySpecificProperties(vo, model,
+                new String[]{"categories", "username", "status", "description", "photo_url", "title", "trash_condition"});*/
         return model;
     }
 
@@ -50,7 +56,11 @@ public class TrashVoConverter implements IBaseVoConverter<TrashVO, Trash> {
 
         ExtendedSpringBeanUtil.copySpecificProperties(model, vo,
                 new String[]{"categories", "username", "status", "description", "distance", "photo_url", "latitude", "longitude",
-                        "title", "condition", "size"});
+                        "report", "title", "trash_condition", "size"});
+        /*
+        ExtendedSpringBeanUtil.copySpecificProperties(vo, model,
+                new String[]{"categories", "username","username", "description", "photo_url", "title", "trash_condition"});
+        */
         return vo;
     }
 }

@@ -1,9 +1,5 @@
 package com.pickle.vo;
 
-import com.pickle.enums.TrashCategories;
-import com.pickle.enums.UnusedCondition;
-import com.pickle.persistence.domain.Trash;
-
 /**
  * Created by Yanuar Wicaksana on 11/1/15.
  */
@@ -15,19 +11,19 @@ public class TrashVO extends BaseVO {
     private String description;
     private int distance;
     private String photo_url;
-    private double latitude;
-    private double longitude;
+    private int latitude;
+    private int longitude;
     private boolean report;
     private String title;
-    private String condition;
+    private String trash_condition;
     private int size;
 
-    public TrashCategories getCategories(){
-        return TrashCategories.valueOf(categories);
+    public String getCategories(){
+        return categories;
     }
 
-    public void setCategories(TrashCategories categories){
-        this.categories = categories.toString();
+    public void setCategories(String categories){
+        this.categories = categories;
     }
 
     public String getUsername(){
@@ -70,7 +66,7 @@ public class TrashVO extends BaseVO {
         this.photo_url = photo_url;
     }
 
-    public Double getLatitude(){
+    public int getLatitude(){
         return latitude;
     }
 
@@ -78,7 +74,7 @@ public class TrashVO extends BaseVO {
         this.latitude = latitude;
     }
 
-    public Double getLongitude(){
+    public int getLongitude(){
         return longitude;
     }
 
@@ -102,12 +98,12 @@ public class TrashVO extends BaseVO {
         this.title = title;
     }
 
-    public UnusedCondition getCondition(){
-        return UnusedCondition.valueOf(condition);
+    public String getTrash_condition(){
+        return trash_condition;
     }
 
-    public void setCondition(UnusedCondition condition){
-        this.condition = condition.toString();
+    public void setTrash_condition(String trash_condition){
+        this.trash_condition = trash_condition;
     }
 
     public int getSize(){
@@ -121,7 +117,7 @@ public class TrashVO extends BaseVO {
     @Override
     public String toString() {
         final StringBuffer sb = new StringBuffer("Trash{");
-        sb.append("categories='").append(getCategories()).append('\'');
+        sb.append("categories='").append(categories).append('\'');
         sb.append(", username='").append(username).append('\'');
         sb.append(", status=").append(status);
         sb.append(", description='").append(description).append('\'');
@@ -129,8 +125,9 @@ public class TrashVO extends BaseVO {
         sb.append(", photo url='").append(photo_url).append('\'');
         sb.append(", latitude=").append(latitude);
         sb.append(", longitude=").append(longitude);
+        sb.append(", report=").append(report);
         sb.append(", title='").append(title).append('\'');
-        sb.append(", condition='").append(getCondition()).append('\'');
+        sb.append(", trash_condition='").append(trash_condition).append('\'');
         sb.append(", size='").append(size);
         return sb.toString();
     }
