@@ -1,15 +1,64 @@
 com/pickle/util/RestUtil.class
+<<<<<<< HEAD
+=======
+UnusedGoods.class
+<<<<<<< HEAD
+com\pickle\persistence\domain\Trash.class
+com\pickle\exception\AuthorizationException.class
+com\pickle\rest\TrashController.class
+com\pickle\util\ApplicationContextProvider.class
+com\pickle\exception\ServiceException.class
+=======
+>>>>>>> 9f83a13a6395e9e3c0f3fc114eb0807daed4b8e5
 com/pickle/enums/TrashCategories$1.class
 com/pickle/rest/TrashController.class
 com/pickle/service/BaseService.class
 com/pickle/converter/TrashVoConverter.class
 com/pickle/exception/AuthorizationException.class
+<<<<<<< HEAD
 com/pickle/vo/ArticleVO.class
+=======
+>>>>>>> 0d539fe15bb4e682780b900c813ba3ae6c5dac17
+Categories$1.class
+>>>>>>> 9f83a13a6395e9e3c0f3fc114eb0807daed4b8e5
 com/pickle/util/ExtendedSpringBeanUtil.class
 com/pickle/vo/TrashVO.class
 com/pickle/filter/CORSFilter.class
 com/pickle/persistence/repository/TrashRepository.class
 com/pickle/util/ApplicationContextProvider.class
+<<<<<<< HEAD
+=======
+Account.class
+<<<<<<< HEAD
+com\pickle\converter\BaseVoConverter.class
+com\pickle\exception\GlobalDefaultExceptionHandler.class
+com\pickle\util\RestUtil.class
+com\pickle\vo\BaseVO.class
+com\pickle\util\StatusCode.class
+com\pickle\vo\TrashVO.class
+com\pickle\config\SwaggerConfig.class
+com\pickle\rest\AbstractBaseController.class
+Trash.class
+com\pickle\persistence\domain\Base.class
+com\pickle\service\BaseService.class
+com\pickle\persistence\domain\Account.class
+com\pickle\service\TrashService.class
+com\pickle\persistence\repository\AccountRespository.class
+com\pickle\filter\CORSFilter.class
+com\pickle\converter\TrashVoConverter.class
+com\pickle\enums\TrashCategories.class
+com\pickle\util\ExtendedSpringBeanUtil.class
+OtherWaste.class
+com\pickle\enums\UnusedCondition$1.class
+com\pickle\rest\AbstractBaseController$AbstractRequestHandler.class
+com\pickle\enums\TrashCategories$1.class
+com\pickle\main\Application.class
+com\pickle\converter\IBaseVoConverter.class
+com\pickle\vo\ResultVO.class
+com\pickle\vo\ArticleVO.class
+com\pickle\config\WebMvcConfig.class
+=======
+>>>>>>> 9f83a13a6395e9e3c0f3fc114eb0807daed4b8e5
 com/pickle/util/StatusCode.class
 com/pickle/exception/GlobalDefaultExceptionHandler.class
 com/pickle/persistence/domain/Account.class
@@ -32,4 +81,8 @@ com/pickle/rest/AbstractBaseController$AbstractRequestHandler.class
 com/pickle/persistence/domain/Base.class
 com/pickle/vo/AccountVO.class
 com/pickle/rest/AbstractBaseController.class
+<<<<<<< HEAD
 com/pickle/rest/TrashController$1.class
+=======
+>>>>>>> 0d539fe15bb4e682780b900c813ba3ae6c5dac17
+>>>>>>> 9f83a13a6395e9e3c0f3fc114eb0807daed4b8e5
