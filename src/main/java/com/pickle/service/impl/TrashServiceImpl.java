@@ -35,9 +35,9 @@ public class TrashServiceImpl implements TrashService{
     @Override
     public TrashVO add(TrashVO vo) {
         //input to database
-        TrashVO trash = TrashVoConverter.transferVOToModel(vo, null);
+        Trash trash = trashVoConverter.transferVOToModel(vo,null);
 
-        TrashRepository.save(trash);
+        trashRepository.save(trash);
 
         vo.setId(trash.getSecureId());
 

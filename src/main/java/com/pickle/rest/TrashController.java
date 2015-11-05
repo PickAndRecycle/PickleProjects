@@ -49,7 +49,7 @@ public class TrashController {
         AbstractBaseController.AbstractRequestHandler handler = new AbstractBaseController.AbstractRequestHandler() {
             @Override
             public Object processRequest() {
-                TrashVO vo = TrashService.add(voInput);
+                TrashVO vo = trashService.add(voInput);
                 return vo == null ? null : vo.getId();
             }
         };
