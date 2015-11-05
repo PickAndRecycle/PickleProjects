@@ -1,5 +1,6 @@
 package com.pickle.rest;
 
+import com.pickle.persistence.domain.Trash;
 import com.pickle.service.TrashService;
 import com.pickle.vo.ResultVO;
 import com.pickle.vo.TrashVO;
@@ -36,6 +37,20 @@ public class TrashController {
             @Override
             public Object processRequest() {
                 return trashService.findById(secureId);
+            }
+        };
+        return handler.getResult();
+    }
+
+    @RequestMapping(value = "/", method = RequestMethod.POST)
+    @ResponseBody
+    public ResponseEntity<ResultVO> add(@RequestBody TrashVO voInput){
+
+        AbstractBaseController.AbstractRequestHandler handler = new AbstractBaseController.AbstractRequestHandler() {
+            @Override
+            public Object processRequest() {
+                TrashVO vo = TrashService.add(voInput);
+                return vo == null ? null : vo.getId();
             }
         };
         return handler.getResult();
