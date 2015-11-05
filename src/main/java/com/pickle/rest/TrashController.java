@@ -30,5 +30,16 @@ public class TrashController {
         return handler.getResult();
     }
 
+    @RequestMapping(value = "/{id}", method = RequestMethod.GET)
+    public ResponseEntity<ResultVO> findById(@PathVariable("id") String secureId){
+        AbstractBaseController.AbstractRequestHandler handler = new AbstractBaseController.AbstractRequestHandler() {
+            @Override
+            public Object processRequest() {
+                return trashService.findById(secureId);
+            }
+        };
+        return handler.getResult();
+    }
+
 
 }
