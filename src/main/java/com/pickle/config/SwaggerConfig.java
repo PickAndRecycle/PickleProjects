@@ -46,7 +46,8 @@ public class SwaggerConfig {
                 .useDefaultResponseMessages(false)
                         //Here we specify URI patterns which will be included in Swagger docs. Use regex for this purpose.
                 .includePatterns(
-                        "/trash.*"
+                        "/trash.*",
+                        "/account.*"
                 )
                 .authorizationTypes(authorizationTypes())
                 .authorizationContext(authorizationContext())
