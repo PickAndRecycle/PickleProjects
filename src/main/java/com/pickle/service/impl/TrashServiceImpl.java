@@ -47,7 +47,14 @@ public class TrashServiceImpl implements TrashService{
     @Override
     public TrashVO update(String s, TrashVO vo) {
 
-        return null;
+        Trash trash = trashRepository.findBySecureId(s);
+
+        trash = trashVoConverter.transferVOToModel(vo,trash);
+
+        trashRepository.saveAndFlush(trash);
+
+        return trashVoConverter.transferModelToVO(trash, null);
+
     }
 
     @Override

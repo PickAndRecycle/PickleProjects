@@ -56,5 +56,16 @@ public class TrashController {
         return handler.getResult();
     }
 
+    @RequestMapping(value = "/{id}", method = RequestMethod.PUT)
+    @ResponseBody
+    public ResponseEntity<ResultVO> edit(@PathVariable("id") String secureId, @RequestBody TrashVO voInput){
+        AbstractBaseController.AbstractRequestHandler handler = new AbstractBaseController.AbstractRequestHandler() {
+            @Override
+            public Object processRequest() {
+                return trashService.update(secureId, voInput);
+            }
+        };
+        return handler.getResult();
+    }
 
 }
