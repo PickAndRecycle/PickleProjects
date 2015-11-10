@@ -23,6 +23,8 @@ import java.util.List;
  */
 public class ExtendedSpringBeanUtil extends BeanUtils {
 
+    public static Object copySpecificProperties;
+
     /**
      * copy properties from other object with same attributes name
      *
