@@ -5,18 +5,10 @@ package com.pickle.vo;
  * Created by kamar on 3/11/2015.
  */
 public class ArticleVO extends BaseVO {
-    private String username;
     private String title;
-    private String photo_data; //TODO: Photo data in base64 format.
+    private String photo_url;
     private String content;
 
-    public String getUsername(){
-        return username;
-    }
-
-    public void setUsername(String username) {
-        this.username = username;
-    }
 
     public String getTitle() {
         return title;
@@ -26,12 +18,12 @@ public class ArticleVO extends BaseVO {
         this.title = title;
     }
 
-    public String getPhoto_data() {
-        return photo_data;
+    public String getPhoto_url() {
+        return photo_url;
     }
 
-    public void setPhoto_data(String photo_data) {
-        this.photo_data = photo_data;
+    public void setPhoto_url(String photo_url) {
+        this.photo_url = photo_url;
     }
 
     public String getContent() {
@@ -45,10 +37,9 @@ public class ArticleVO extends BaseVO {
     @Override
     public String toString() {
         final StringBuffer sb = new StringBuffer("Article{");
-        sb.append("username='").append(username).append('\'');
-        sb.append(", title='").append(title);
-        sb.append(", photo_data='").append(photo_data).append('\'');
-        sb.append(", content='").append(content);
+        sb.append("title='").append(title).append('\'');
+        sb.append(", photo_url='").append(photo_url).append('\'');
+        sb.append(", content=").append(content).append('\'');
         return sb.toString();
     }
 
