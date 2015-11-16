@@ -10,6 +10,7 @@ public class AccountVO extends BaseVO {
     private String password;
     private String phone_number;
     private String profile_picture_url;
+    private int point;
 
     public String getUsername() {
         return username;
@@ -29,6 +30,10 @@ public class AccountVO extends BaseVO {
 
     public String getProfile_picture_url() {
         return profile_picture_url;
+    }
+
+    public int getPoint() {
+        return point;
     }
 
     public void setUsername(String username) {
@@ -51,6 +56,10 @@ public class AccountVO extends BaseVO {
         this.profile_picture_url = profile_picture_url;
     }
 
+    public void setPoint(int point) {
+        this.point = point;
+    }
+
     public String toString() {
         final StringBuffer sb = new StringBuffer("Account{");
         sb.append("username='").append(getUsername()).append('\'');
@@ -58,6 +67,7 @@ public class AccountVO extends BaseVO {
         sb.append(", password=").append(getPassword());
         sb.append(", phone number='").append(getPhone_number()).append('\'');
         sb.append(", profile picture=").append(getProfile_picture_url());
+        sb.append(", point=").append(point);
         return sb.toString();
     }
 }

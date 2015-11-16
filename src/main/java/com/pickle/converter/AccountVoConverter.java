@@ -26,7 +26,7 @@ public class AccountVoConverter implements IBaseVoConverter<AccountVO,Account> {
         baseVoConverter.transferVOToModel(vo, model);
 
         ExtendedSpringBeanUtil.copySpecificProperties(vo, model,
-                new String[]{"username", "email", "password", "phone_number", "profile_picture_url"});
+                new String[]{"username", "email", "password", "phone_number", "profile_picture_url", "point"});
         /*
         ExtendedSpringBeanUtil.copySpecificProperties(vo, model,
                 new String[]{"categories", "username", "status", "description", "photo_url", "title", "trash_condition"});*/

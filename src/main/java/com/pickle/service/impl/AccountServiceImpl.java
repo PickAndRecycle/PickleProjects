@@ -45,8 +45,14 @@ public class AccountServiceImpl implements AccountService {
 
     @Override
     public AccountVO update(String s, AccountVO vo) {
+        Account account = accountRespository.findBySecureId(s);
 
-        return null;
+        account = accountVoConverter.transferVOToModel(vo,account);
+
+        accountRespository.saveAndFlush(account);
+
+        return accountVoConverter.transferModelToVO(account, null);
+
     }
 
     @Override
@@ -56,9 +62,9 @@ public class AccountServiceImpl implements AccountService {
 
     @Override
     public Collection<AccountVO> findAll() {
-        Collection<Account> TrashList = accountRespository.findAll();
+        Collection<Account> accountList = accountRespository.findAll();
 
-        return accountVoConverter.transferListOfModelToListOfVO(TrashList, null);
+        return accountVoConverter.transferListOfModelToListOfVO(accountList, null);
     }
 
     @Override

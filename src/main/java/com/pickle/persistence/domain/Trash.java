@@ -56,11 +56,7 @@ public class Trash extends Base {
     public void prePersist(){
         super.prePersist();
         this.status = 0;
-        this.distance = 0;
-        this.latitude = 0;
-        this.longitude = 0;
-        this.report = false;
-        this.size = 0;
+
     }
 
     public String getCategories(){
