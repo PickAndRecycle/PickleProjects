@@ -52,6 +52,9 @@ public class Trash extends Base {
     @Column(name = "SIZE")
     private int size;
 
+    @Column(name = "THUMBNAILURL")
+    private String thumbnailUrl;
+
     @PrePersist
     public void prePersist(){
         super.prePersist();
@@ -155,6 +158,14 @@ public class Trash extends Base {
         this.size = size;
     }
 
+    public String getThumbnailUrl() {
+        return thumbnailUrl;
+    }
+
+    public void setThumbnailUrl(String thumbnailUrl) {
+        this.thumbnailUrl = thumbnailUrl;
+    }
+
     @Override
     public String toString() {
         final StringBuffer sb = new StringBuffer("Trash{");
@@ -170,6 +181,7 @@ public class Trash extends Base {
         sb.append(", title='").append(title).append('\'');
         sb.append(", trash_condition='").append(trash_condition).append('\'');
         sb.append(", size='").append(size);
+        sb.append(", thumbnail url='").append(thumbnailUrl).append('\'');
         return sb.toString();
     }
 }

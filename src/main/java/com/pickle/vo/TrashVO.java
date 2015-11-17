@@ -17,6 +17,7 @@ public class TrashVO extends BaseVO {
     private String title;
     private String trash_condition;
     private int size;
+    private String thumbnailUrl;
 
     public String getCategories(){
         return categories;
@@ -114,6 +115,14 @@ public class TrashVO extends BaseVO {
         this.size = size;
     }
 
+    public String getThumbnailUrl() {
+        return thumbnailUrl;
+    }
+
+    public void setThumbnailUrl(String thumbnailUrl) {
+        this.thumbnailUrl = thumbnailUrl;
+    }
+
     @Override
     public String toString() {
         final StringBuffer sb = new StringBuffer("Trash{");
@@ -129,6 +138,7 @@ public class TrashVO extends BaseVO {
         sb.append(", title='").append(title).append('\'');
         sb.append(", trash_condition='").append(trash_condition).append('\'');
         sb.append(", size='").append(size);
+        sb.append(", thumbnail url='").append(thumbnailUrl).append('\'');
         return sb.toString();
     }
 }

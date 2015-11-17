@@ -8,6 +8,7 @@ import com.pickle.service.TrashService;
 import com.pickle.vo.TrashVO;
 import org.apache.commons.lang.RandomStringUtils;
 import org.apache.commons.lang.StringUtils;
+import org.imgscalr.Scalr;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,11 +16,12 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.multipart.MultipartFile;
 
-import java.io.BufferedOutputStream;
-import java.io.File;
-import java.io.FileOutputStream;
-import java.io.IOException;
+import javax.imageio.ImageIO;
+import java.awt.image.BufferedImage;
+import java.io.*;
+import java.util.ArrayList;
 import java.util.Collection;
+import java.util.List;
 
 /**
  * Created by Yanuar Wicaksana on 11/2/15.
@@ -58,7 +60,8 @@ public class TrashServiceImpl implements TrashService{
     public static String createPhotoDirectory(){
 
 //        try{
-        File photoDirectory = new File("/home/ubuntu/pickle-core/");
+        //File photoDirectory = new File("/home/ubuntu/pickle-core/");
+        File photoDirectory = new File("Users/dedensukarna/");
         logger.info("photoBaseDir = {}", new Object[]{ photoDirectory });
 
         File newPhotoDirectory = new File(photoDirectory, "trashImages");
@@ -86,8 +89,9 @@ public class TrashServiceImpl implements TrashService{
         //input to database
         Trash trash = trashVoConverter.transferVOToModel(vo,null);
 
-        String url = sendToServer(file);
-        trash.setPhoto_url(url);
+        List<String> url = sendToServer(file);
+        trash.setPhoto_url(url.get(0));
+        trash.setThumbnailUrl(url.get(1));
 
         trashRepository.save(trash);
 
@@ -99,7 +103,7 @@ public class TrashServiceImpl implements TrashService{
     }
 
 
-    public static String sendToServer(MultipartFile sourceFile) throws IOException {
+    public static List<String> sendToServer(MultipartFile sourceFile) throws IOException {
 
         String path = createPhotoDirectory();
 
@@ -108,17 +112,29 @@ public class TrashServiceImpl implements TrashService{
                 originalFilename.replaceAll("\\s", "_");
 
         String fileName = RandomStringUtils.randomNumeric(8) + "_" + destFilename;
-        File destinationFile = new File(path + "\\" + fileName);
+        String fileName2 = RandomStringUtils.randomNumeric(8) + "_" + destFilename;
+        File destinationFile = new File(path + "/" + fileName);
+        File destinationFile2 = new File(path + "/" + fileName2);
 
         byte[] bytes = sourceFile.getBytes();
+        InputStream in = new ByteArrayInputStream(bytes);
+        BufferedImage bImageFromConvert = ImageIO.read(in);
+        BufferedImage thumbImg = Scalr.resize(bImageFromConvert, Scalr.Method.QUALITY, Scalr.Mode.AUTOMATIC,
+                50,
+                50, Scalr.OP_ANTIALIAS);
+
         BufferedOutputStream stream =
                 new BufferedOutputStream(new FileOutputStream(destinationFile));
+        ImageIO.write(thumbImg,"jpg",destinationFile2);
         stream.write(bytes);
         stream.close();
 
-//        sourceFile.transferTo(destinationFile);
 
-        return destinationFile.getAbsolutePath().replace("D:\\TrashImages", "");
+//        sourceFile.transferTo(destinationFile);
+        List destination = new ArrayList<String>();
+        destination.add(destinationFile.getAbsolutePath());
+        destination.add(destinationFile2.getAbsolutePath());
+        return destination;
     }
 
     @Override
