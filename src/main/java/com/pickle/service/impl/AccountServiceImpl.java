@@ -11,7 +11,9 @@ import com.pickle.persistence.repository.AccountRespository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.web.multipart.MultipartFile;
 
+import java.io.IOException;
 import java.util.Collection;
 
 /**
@@ -77,6 +79,11 @@ public class AccountServiceImpl implements AccountService {
         }
 
         return accountVoConverter.transferModelToVO(account, null);
+    }
+
+    @Override
+    public AccountVO addTrash(AccountVO vo, MultipartFile file) throws IOException {
+        return null;
     }
 }
 

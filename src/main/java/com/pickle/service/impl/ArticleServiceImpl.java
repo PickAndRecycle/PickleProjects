@@ -11,7 +11,9 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.web.multipart.MultipartFile;
 
+import java.io.IOException;
 import java.util.Collection;
 
 /**
@@ -51,6 +53,11 @@ public class ArticleServiceImpl implements ArticleService {
         }
 
         return articleVoConverter.transferModelToVO(article, null);
+    }
+
+    @Override
+    public ArticleVO addTrash(ArticleVO vo, MultipartFile file) throws IOException {
+        return null;
     }
 
     @Override

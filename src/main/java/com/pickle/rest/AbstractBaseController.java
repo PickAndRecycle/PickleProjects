@@ -6,6 +6,8 @@ import com.pickle.util.StatusCode;
 import com.pickle.vo.ResultVO;
 import org.springframework.http.ResponseEntity;
 
+import java.io.IOException;
+
 public abstract class AbstractBaseController {
 
     protected static abstract class AbstractRequestHandler {
@@ -21,11 +23,13 @@ public abstract class AbstractBaseController {
             } catch (ServiceException e) {
                 result.setMessage(e.getCode().name());
                 result.setResult(e.getMessage());
+            } catch (IOException e) {
+                e.printStackTrace();
             }
             return RestUtil.getJsonResponse(result);
         }
 
-        public abstract Object processRequest();
+        public abstract Object processRequest() throws IOException;
 
     }
 
