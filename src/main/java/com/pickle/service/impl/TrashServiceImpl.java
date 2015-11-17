@@ -105,10 +105,10 @@ public class TrashServiceImpl implements TrashService{
 
         String originalFilename = sourceFile.getOriginalFilename();
         String destFilename = StringUtils.isBlank(originalFilename) ? RandomStringUtils.randomAlphabetic(8) :
-                originalFilename.replaceAll("\\s", "_");
+                originalFilename.replaceAll("/s", "_");
 
         String fileName = RandomStringUtils.randomNumeric(8) + "_" + destFilename;
-        File destinationFile = new File(path + "\\" + fileName);
+        File destinationFile = new File(path + "/" + fileName);
 
         byte[] bytes = sourceFile.getBytes();
         BufferedOutputStream stream =
@@ -118,7 +118,7 @@ public class TrashServiceImpl implements TrashService{
 
 //        sourceFile.transferTo(destinationFile);
 
-        return destinationFile.getAbsolutePath().replace("D:\\TrashImages", "");
+        return destinationFile.getAbsolutePath().replace("/home/ubuntu/pickle-core/trashImages", "");
     }
 
     @Override
