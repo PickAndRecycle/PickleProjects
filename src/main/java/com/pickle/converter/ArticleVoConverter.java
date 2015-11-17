@@ -51,7 +51,7 @@ public class ArticleVoConverter implements IBaseVoConverter<ArticleVO, Article> 
 
         baseVoConverter.transferModelToVO(model, vo);
 
-        ExtendedSpringBeanUtil.copySpecificProperties(vo, model,
+        ExtendedSpringBeanUtil.copySpecificProperties(model, vo,
                 new String[]{"title", "photoUrl", "content"});
 
         return vo;
