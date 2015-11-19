@@ -51,7 +51,7 @@ public class Article extends Base {
     }
 
     public void setPhoto_url(String photoUrl) {
-        this.photo_url = photo_url;
+        this.photo_url = photoUrl;
     }
 
 
