@@ -1,5 +1,6 @@
 package com.pickle.service;
 
+import com.pickle.vo.ArticleVO;
 import com.pickle.vo.BaseVO;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -42,6 +43,7 @@ public interface BaseService<V extends BaseVO, SID extends String> {
      */
     public abstract V findById(SID sid);
 
-    public V addTrash(V vo, MultipartFile file) throws IOException;
+    public V addFile(V vo, MultipartFile file) throws IOException;
+
 
 }

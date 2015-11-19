@@ -63,11 +63,6 @@ public class ArticleServiceImpl implements ArticleService {
     }
 
     @Override
-    public ArticleVO addTrash(ArticleVO vo, MultipartFile file) throws IOException {
-        return null;
-    }
-
-    @Override
     public Collection<ArticleVO> findAll() {
         Collection<Article> ArticleList = articleRepository.findAll();
 
@@ -122,7 +117,7 @@ public class ArticleServiceImpl implements ArticleService {
 
 
     @Override
-    public ArticleVO addArticle(ArticleVO vo, MultipartFile file) throws IOException {
+    public ArticleVO addFile(ArticleVO vo, MultipartFile file) throws IOException {
         //input to database
         Article article = articleVoConverter.transferVOToModel(vo,null);
 

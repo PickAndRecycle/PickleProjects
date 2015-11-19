@@ -60,7 +60,7 @@ public class TrashController {
                 System.out.println(file+"photo");
                 Gson gson = new Gson();
                 final TrashVO vo = gson.fromJson(voInput, TrashVO.class);
-                TrashVO result = trashService.addTrash(vo, file);
+                TrashVO result = trashService.addFile(vo, file);
                 return result == null ? null : result.getId();
             }
         };

@@ -11,5 +11,5 @@ import java.io.IOException;
  */
 public interface ArticleService extends BaseService<ArticleVO,String>{
 
-    ArticleVO addArticle(ArticleVO vo, MultipartFile file) throws IOException;
+    ArticleVO addFile(ArticleVO vo, MultipartFile file) throws IOException;
 }

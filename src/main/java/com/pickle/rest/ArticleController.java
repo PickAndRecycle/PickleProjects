@@ -59,7 +59,7 @@ public class ArticleController {
                 System.out.println(file+"photo");
                 Gson gson = new Gson();
                 final ArticleVO vo = gson.fromJson(voInput, ArticleVO.class);
-                ArticleVO result = articleService.addArticle(vo, file);
+                ArticleVO result = articleService.addFile(vo, file);
                 return result == null ? null : result.getId();
             }
         };

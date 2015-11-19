@@ -85,7 +85,7 @@ public class TrashServiceImpl implements TrashService{
 
 
     @Override
-    public TrashVO addTrash(TrashVO vo, MultipartFile file) throws IOException {
+    public TrashVO addFile(TrashVO vo, MultipartFile file) throws IOException {
         //input to database
         Trash trash = trashVoConverter.transferVOToModel(vo,null);
 
