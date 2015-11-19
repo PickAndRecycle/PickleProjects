@@ -133,8 +133,8 @@ public class TrashServiceImpl implements TrashService{
 
 //        sourceFile.transferTo(destinationFile);
         List destination = new ArrayList<String>();
-        destination.add(destinationFile.getAbsolutePath());
-        destination.add(destinationFile2.getAbsolutePath());
+        destination.add("http://104.155.237.238/pic/trashImages/" + fileName);
+        destination.add("http://104.155.237.238/pic/trashImages/" + fileName2);
         return destination;
 
         //return destinationFile.getAbsolutePath().replace("/home/ubuntu/pickle-core/trashImages", "");
