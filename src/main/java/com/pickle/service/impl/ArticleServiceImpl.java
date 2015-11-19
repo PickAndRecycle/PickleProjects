@@ -128,7 +128,6 @@ public class ArticleServiceImpl implements ArticleService {
 
         List<String> url = sendToServer(file);
         article.setPhoto_url(url.get(0));
-        article.setThumbnailUrl(url.get(1));
 
         articleRepository.save(article);
 
@@ -147,20 +146,11 @@ public class ArticleServiceImpl implements ArticleService {
                 originalFilename.replaceAll("/s", "_");
 
         String fileName = RandomStringUtils.randomNumeric(8) + "_" + destFilename;
-        String fileName2 = RandomStringUtils.randomNumeric(8) + "_" + destFilename;
         File destinationFile = new File(path + "/" + fileName);
-        File destinationFile2 = new File(path + "/" + fileName2);
 
         byte[] bytes = sourceFile.getBytes();
-        InputStream in = new ByteArrayInputStream(bytes);
-        BufferedImage bImageFromConvert = ImageIO.read(in);
-        BufferedImage thumbImg = Scalr.resize(bImageFromConvert, Scalr.Method.QUALITY, Scalr.Mode.AUTOMATIC,
-                50,
-                50, Scalr.OP_ANTIALIAS);
-
         BufferedOutputStream stream =
                 new BufferedOutputStream(new FileOutputStream(destinationFile));
-        ImageIO.write(thumbImg,"jpg",destinationFile2);
         stream.write(bytes);
         stream.close();
 
@@ -169,7 +159,6 @@ public class ArticleServiceImpl implements ArticleService {
 //        sourceFile.transferTo(destinationFile);
         List destination = new ArrayList<String>();
         destination.add("http://104.155.237.238/pic/trashImages/" + fileName);
-        destination.add("http://104.155.237.238/pic/trashImages/" + fileName2);
         return destination;
 
         //return destinationFile.getAbsolutePath().replace("/home/ubuntu/pickle-core/trashImages", "");
