@@ -158,7 +158,7 @@ public class ArticleServiceImpl implements ArticleService {
 
 //        sourceFile.transferTo(destinationFile);
         List destination = new ArrayList<String>();
-        destination.add("http://104.155.237.238/pic/trashImages/" + fileName);
+        destination.add("http://104.155.237.238/pic/articleImages/" + fileName);
         return destination;
 
         //return destinationFile.getAbsolutePath().replace("/home/ubuntu/pickle-core/trashImages", "");
