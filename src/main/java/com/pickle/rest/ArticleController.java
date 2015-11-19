@@ -1,12 +1,17 @@
 package com.pickle.rest;
 
+import com.google.gson.Gson;
 import com.pickle.persistence.domain.Article;
 import com.pickle.service.ArticleService;
 import com.pickle.vo.ArticleVO;
 import com.pickle.vo.ResultVO;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
+
+import java.io.IOException;
 
 /**
  * Created by Yanuar Wicaksana on 11/14/15.
@@ -41,15 +46,21 @@ public class ArticleController {
         return handler.getResult();
     }
 
-    @RequestMapping(value = "/", method = RequestMethod.POST)
+    @RequestMapping(value = "/", method = RequestMethod.POST,
+            consumes = MediaType.MULTIPART_FORM_DATA_VALUE,
+            produces = MediaType.APPLICATION_JSON_VALUE)
     @ResponseBody
-    public ResponseEntity<ResultVO> add(@RequestBody ArticleVO voInput){
+    public ResponseEntity<ResultVO> add(@RequestParam(value = "voInput", required = false) String voInput,
+                                        @RequestParam(value = "file", required = false) final MultipartFile file){
 
         AbstractBaseController.AbstractRequestHandler handler = new AbstractBaseController.AbstractRequestHandler() {
             @Override
-            public Object processRequest() {
-                ArticleVO vo = articleService.add(voInput);
-                return vo == null ? null : vo.getId();
+            public Object processRequest() throws IOException {
+                System.out.println(file+"photo");
+                Gson gson = new Gson();
+                final ArticleVO vo = gson.fromJson(voInput, ArticleVO.class);
+                ArticleVO result = articleService.addArticle(vo, file);
+                return result == null ? null : result.getId();
             }
         };
         return handler.getResult();
