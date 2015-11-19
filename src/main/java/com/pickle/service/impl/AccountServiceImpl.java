@@ -82,7 +82,12 @@ public class AccountServiceImpl implements AccountService {
     }
 
     @Override
-    public AccountVO addTrash(AccountVO vo, MultipartFile file) throws IOException {
+    public AccountVO addFile(AccountVO vo, MultipartFile file) throws IOException {
+        return null;
+    }
+
+    @Override
+    public AccountVO addAccount(AccountVO vo, MultipartFile file) throws IOException {
         return null;
     }
 }
