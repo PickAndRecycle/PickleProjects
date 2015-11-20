@@ -3,6 +3,7 @@ package com.pickle.rest;
 import com.google.gson.Gson;
 import com.pickle.persistence.domain.Trash;
 import com.pickle.service.TrashService;
+import com.pickle.vo.AccountVO;
 import com.pickle.vo.ResultVO;
 import com.pickle.vo.TrashVO;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -47,6 +48,21 @@ public class TrashController {
         return handler.getResult();
     }
 
+    @RequestMapping(value = "/", method = RequestMethod.POST)
+    @ResponseBody
+    public ResponseEntity<ResultVO> add(@RequestBody TrashVO voInput){
+
+        AbstractBaseController.AbstractRequestHandler handler = new AbstractBaseController.AbstractRequestHandler() {
+            @Override
+            public Object processRequest() {
+                TrashVO vo = trashService.add(voInput);
+                return vo == null ? null : vo.getId();
+            }
+        };
+        return handler.getResult();
+    }
+
+    /*
     @RequestMapping(value = "/", method = RequestMethod.POST,
             consumes = MediaType.MULTIPART_FORM_DATA_VALUE,
             produces = MediaType.APPLICATION_JSON_VALUE)
@@ -66,7 +82,7 @@ public class TrashController {
         };
         return handler.getResult();
     }
-
+    */
     @RequestMapping(value = "/{id}", method = RequestMethod.PUT)
     @ResponseBody
     public ResponseEntity<ResultVO> edit(@PathVariable("id") String secureId, @RequestBody TrashVO voInput){

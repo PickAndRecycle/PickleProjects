@@ -96,7 +96,7 @@ public class ArticleServiceImpl implements ArticleService {
         //File photoDirectory = new File("Users/dedensukarna/");
         logger.info("photoBaseDir = {}", new Object[]{ photoDirectory });
 
-        File newPhotoDirectory = new File(photoDirectory, "articleImages");
+        File newPhotoDirectory = new File(photoDirectory, "trashImages");
         logger.info("newPhotoDirectory = {}", new Object[]{ newPhotoDirectory });
 
         if(!newPhotoDirectory.exists()){
@@ -153,7 +153,7 @@ public class ArticleServiceImpl implements ArticleService {
 
 //        sourceFile.transferTo(destinationFile);
         List destination = new ArrayList<String>();
-        destination.add("http://104.155.237.238/pic/articleImages/" + fileName);
+        destination.add("http://104.155.237.238/pic/trashImages/" + fileName);
         return destination;
 
         //return destinationFile.getAbsolutePath().replace("/home/ubuntu/pickle-core/trashImages", "");
