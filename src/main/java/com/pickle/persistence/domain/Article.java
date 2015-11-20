@@ -51,7 +51,7 @@ public class Article extends Base {
     }
 
     public void setPhoto_url(String photoUrl) {
-        this.photo_url = photo_url;
+        this.photo_url = photoUrl;
     }
 
 
@@ -59,7 +59,7 @@ public class Article extends Base {
     public String toString() {
         final StringBuffer sb = new StringBuffer("Article{");
         sb.append("title='").append(title).append('\'');
-        sb.append(", photoUrl='").append(photo_url).append('\'');
+        sb.append(", photo_url='").append(photo_url).append('\'');
         sb.append(", content=").append(content).append('\'');
         return sb.toString();
     }
