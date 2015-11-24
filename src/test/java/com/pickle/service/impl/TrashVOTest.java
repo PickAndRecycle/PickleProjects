@@ -15,7 +15,7 @@ public class TrashVOTest {
         TrashVO trash = new TrashVO();
         String category = "Unused Goods";
         trash.setCategories(category);
-        assertEquals(category,trash.getUsername());
+        assertEquals(category,trash.getCategories());
     }
 
     @Test
