@@ -64,6 +64,7 @@
     <orderEntry type="library" name="Maven: org.eclipse.jetty.websocket:javax-websocket-client-impl:9.2.13.v20150730" level="project" />
     <orderEntry type="library" name="Maven: javax.websocket:javax.websocket-api:1.0" level="project" />
     <orderEntry type="library" name="Maven: com.google.code.gson:gson:2.3.1" level="project" />
+    <orderEntry type="library" name="Maven: org.imgscalr:imgscalr-lib:4.2" level="project" />
     <orderEntry type="library" name="Maven: org.springframework:spring-core:4.1.8.RELEASE" level="project" />
     <orderEntry type="library" name="Maven: org.springframework:spring-context:4.1.8.RELEASE" level="project" />
     <orderEntry type="library" name="Maven: org.springframework:spring-aop:4.1.8.RELEASE" level="project" />
