@@ -48,7 +48,7 @@ public class TrashController {
         return handler.getResult();
     }
 
-    @RequestMapping(value = "/", method = RequestMethod.POST)
+    /*@RequestMapping(value = "/", method = RequestMethod.POST)
     @ResponseBody
     public ResponseEntity<ResultVO> add(@RequestBody TrashVO voInput){
 
@@ -60,9 +60,9 @@ public class TrashController {
             }
         };
         return handler.getResult();
-    }
+    }*/
 
-    /*
+
     @RequestMapping(value = "/", method = RequestMethod.POST,
             consumes = MediaType.MULTIPART_FORM_DATA_VALUE,
             produces = MediaType.APPLICATION_JSON_VALUE)
@@ -82,7 +82,7 @@ public class TrashController {
         };
         return handler.getResult();
     }
-    */
+
     @RequestMapping(value = "/{id}", method = RequestMethod.PUT)
     @ResponseBody
     public ResponseEntity<ResultVO> edit(@PathVariable("id") String secureId, @RequestBody TrashVO voInput){
