@@ -1,5 +1,7 @@
 package com.pickle.vo;
 
+import java.math.BigDecimal;
+
 /**
  * Created by Yanuar Wicaksana on 11/1/15.
  */
@@ -11,8 +13,8 @@ public class TrashVO extends BaseVO {
     private String description;
     private int distance;
     private String photo_url;
-    private int latitude;
-    private int longitude;
+    private BigDecimal latitude;
+    private BigDecimal longitude;
     private boolean report;
     private String title;
     private String trash_condition;
@@ -67,19 +69,19 @@ public class TrashVO extends BaseVO {
         this.photo_url = photo_url;
     }
 
-    public int getLatitude(){
+    public BigDecimal getLatitude(){
         return latitude;
     }
 
-    public void setLatitude(int latitude){
+    public void setLatitude(BigDecimal latitude){
         this.latitude = latitude;
     }
 
-    public int getLongitude(){
+    public BigDecimal getLongitude(){
         return longitude;
     }
 
-    public void setLongitude(int longitude){
+    public void setLongitude(BigDecimal longitude){
         this.longitude = longitude;
     }
 
