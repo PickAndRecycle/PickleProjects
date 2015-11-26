@@ -1,5 +1,7 @@
 package com.pickle.vo;
 
+import java.util.Date;
+
 /**
  * Created by Yanuar Wicaksana on 11/1/15.
  */
@@ -18,6 +20,29 @@ public class TrashVO extends BaseVO {
     private String trash_condition;
     private int size;
     private String thumbnailUrl;
+
+    public TrashVO(){
+        this.setId("");
+        this.setUsername("");
+        this.setCategories("");
+        this.setThumbnailUrl("");
+        this.setDescription("");
+        this.setDistance(0);
+        this.setLatitude(0);
+        this.setLongitude(0);
+        this.setPhoto_url("");
+        this.setReport(false);
+        this.setSize(0);
+        this.setStatus(0);
+        this.setTitle("");
+        this.setTrash_condition("");
+        this.setCreatedBy("");
+        this.setCreationDate(new Date());
+        this.setDeleted(false);
+        this.setInternalId(0);
+        this.setModificationDate(new Date());
+        this.setModifiedBy("");
+    }
 
     public String getCategories(){
         return categories;

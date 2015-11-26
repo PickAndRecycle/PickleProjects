@@ -41,6 +41,10 @@ public class TrashServiceImpl implements TrashService{
     @Autowired
     TrashRepository trashRepository;
 
+    public TrashServiceImpl(TrashRepository trashRepository){
+        this.trashRepository = trashRepository;
+    }
+
     @Override
     public TrashVO add(TrashVO vo) {
         //input to database

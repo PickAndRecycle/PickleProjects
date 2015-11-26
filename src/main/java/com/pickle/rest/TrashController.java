@@ -23,7 +23,7 @@ import java.io.IOException;
 public class TrashController {
 
     @Autowired
-    private TrashService trashService;
+    public TrashService trashService;
 
     @RequestMapping(value = "/", method = RequestMethod.GET)
     @ResponseBody
