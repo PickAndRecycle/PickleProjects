@@ -26,7 +26,7 @@ public class TrashServiceImplTest {
 
 
 
-    @Test
+    /*@Test
     public void testAdd() throws Exception {
         TrashRepository mockTrashRepository = mock(TrashRepository.class);
         trashService = new TrashServiceImpl(mockTrashRepository);
@@ -38,7 +38,7 @@ public class TrashServiceImplTest {
 
         assertEquals(trashVO.getId(),resultVo.getId());
 
-    }
+    }*/
 
     @Test
     public void testUpdate() throws Exception {
