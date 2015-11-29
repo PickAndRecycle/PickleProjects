@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:jpa="http://www.springframework.org/schema/data/jpa"
+       xmlns:tx="http://www.springframework.org/schema/tx"
+       xmlns="http://www.springframework.org/schema/beans"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+		http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context 
+		http://www.springframework.org/schema/context/spring-context.xsd
+		http://www.springframework.org/schema/data/jpa
+		http://www.springframework.org/schema/data/jpa/spring-jpa.xsd
+		http://www.springframework.org/schema/tx
+        http://www.springframework.org/schema/tx/spring-tx.xsd">
+
+    <tx:annotation-driven proxy-target-class="true" transaction-manager="transactionManager" />
+
+    <context:spring-configured/>
+
+    <context:property-placeholder location="classpath*:/*.properties" ignore-unresolvable="true"/>
+
+	<context:component-scan base-package="com.pickle.converter"/>
+
+    <context:component-scan base-package="com.pickle.service"/>
+
+    <context:component-scan base-package="com.pickle.util"/>
+
+	
+    <jpa:repositories base-package="com.pickle.persistence.repository" />
+
+    <bean id="dataSource"
+          class="org.springframework.jdbc.datasource.LazyConnectionDataSourceProxy">
+        <property name="targetDataSource" ref="mainDataSource" />
+    </bean>
+
+    <!-- BoneCP configuration -->
+    <bean id="mainDataSource" class="com.jolbox.bonecp.BoneCPDataSource" destroy-method="close">
+        <property name="driverClass" value="${database.driverClassName}" />
+        <property name="jdbcUrl" value="${database.url}" />
+        <property name="username" value="${database.username}"/>
+        <property name="password" value="${database.password}"/>
+        <property name="idleConnectionTestPeriodInMinutes" value="1"/>
+        <property name="idleMaxAgeInMinutes" value="4"/>
+        <property name="maxConnectionsPerPartition" value="60"/>
+        <property name="minConnectionsPerPartition" value="20"/>
+        <property name="partitionCount" value="3"/>
+        <property name="acquireIncrement" value="10"/>
+        <property name="statementsCacheSize" value="50"/>
+        <!--<property name="releaseHelperThreads" value="3"/>-->
+    </bean>
+
+    <bean class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean" id="entityManagerFactory">
+        <property name="persistenceUnitName" value="${pu.name}"/>
+        <property name="dataSource" ref="dataSource"/>
+    </bean>
+
+    <bean class="org.springframework.orm.jpa.JpaTransactionManager" id="transactionManager">
+        <property name="entityManagerFactory" ref="entityManagerFactory"/>
+    </bean>
+
+    <bean class="com.pickle.util.ApplicationContextProvider" id="applicationContextProvider" />
+
+    <bean id="gson" class="com.google.gson.Gson"/>
+
+    <bean id="httpConnectionManager" class="org.apache.http.impl.conn.PoolingHttpClientConnectionManager">
+        <property name="maxTotal" value="1000" />
+        <property name="defaultMaxPerRoute" value="50" />
+    </bean>
+
+</beans>
