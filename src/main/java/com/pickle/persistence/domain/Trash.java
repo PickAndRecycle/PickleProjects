@@ -6,7 +6,7 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.PrePersist;
 import javax.persistence.Table;
-import java.math.BigDecimal;
+
 
 /**
  * Created by Yanuar Wicaksana on 11/1/15.
@@ -36,10 +36,10 @@ public class Trash extends Base {
     private String photo_url;
 
     @Column(name = "LATITUDE", precision = 4, scale = 10)
-    private BigDecimal latitude;
+    private int latitude;
 
     @Column(name = "LONGITUDE", precision = 4, scale = 10)
-    private BigDecimal longitude;
+    private int longitude;
 
     @Column(name = "REPORT")
     private boolean report;
@@ -111,19 +111,19 @@ public class Trash extends Base {
         this.photo_url = photo_url;
     }
 
-    public BigDecimal getLatitude(){
+    public int getLatitude(){
         return latitude;
     }
 
-    public void setLatitude(BigDecimal latitude){
+    public void setLatitude(int latitude){
         this.latitude = latitude;
     }
 
-    public BigDecimal getLongitude(){
+    public int getLongitude(){
         return longitude;
     }
 
-    public void setLongitude(BigDecimal longitude){
+    public void setLongitude(int longitude){
         this.longitude = longitude;
     }
 

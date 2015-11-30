@@ -2,7 +2,9 @@ package com.pickle.service.impl;
 
 
 import com.pickle.persistence.domain.Trash;
+import com.pickle.service.AccountService;
 import com.pickle.service.TrashService;
+import com.pickle.vo.AccountVO;
 import com.pickle.vo.TrashVO;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -21,6 +23,9 @@ public class TrashServiceImplTest {
 
     @Autowired
     private TrashService trashService;
+
+    @Autowired
+    private AccountService accountService;
 
     @Test
     public void testAdd() throws Exception {
@@ -41,10 +46,17 @@ public class TrashServiceImplTest {
         trashVO.setSize(0);
         trashVO.setReport(false);
 
+        AccountVO accountVO = accountService.findByName(trashVO.getUsername());
+        int point = accountVO.getPoint();
+
         TrashVO resultVo = trashService.add(trashVO);
 
-        assertEquals(trashVO.getId(),resultVo.getId());
+        AccountVO accountVO2 = accountService.findByName(resultVo.getUsername());
+        int nextpoint = accountVO2.getPoint();
 
+
+        assertEquals(trashVO.getId(), resultVo.getId());
+        assertEquals(point+1,nextpoint);
     }
 
     @Test

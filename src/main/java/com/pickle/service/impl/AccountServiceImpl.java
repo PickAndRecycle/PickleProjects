@@ -90,5 +90,10 @@ public class AccountServiceImpl implements AccountService {
     public AccountVO addAccount(AccountVO vo, MultipartFile file) throws IOException {
         return null;
     }
+
+    @Override
+    public AccountVO findByName(String name) {
+        return null;
+    }
 }
 
