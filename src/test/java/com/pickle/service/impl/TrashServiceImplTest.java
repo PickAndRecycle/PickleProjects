@@ -40,8 +40,8 @@ public class TrashServiceImplTest {
         trashVO.setStatus(0);
         trashVO.setDescription("Test Description");
         trashVO.setDistance(10);
-        trashVO.setLatitude(20);
-        trashVO.setLongitude(20);
+        trashVO.setLatitude("20");
+        trashVO.setLongitude("20");
         trashVO.setPhoto_url("");
         trashVO.setSize(0);
         trashVO.setReport(false);
@@ -71,8 +71,8 @@ public class TrashServiceImplTest {
         trashVO.setStatus(0);
         trashVO.setDescription("Test Description");
         trashVO.setDistance(10);
-        trashVO.setLatitude(20);
-        trashVO.setLongitude(20);
+        trashVO.setLatitude("20");
+        trashVO.setLongitude("20");
         trashVO.setPhoto_url("");
         trashVO.setSize(0);
         trashVO.setReport(false);
@@ -96,8 +96,8 @@ public class TrashServiceImplTest {
         trashVO.setStatus(0);
         trashVO.setDescription("Test Description");
         trashVO.setDistance(10);
-        trashVO.setLatitude(20);
-        trashVO.setLongitude(20);
+        trashVO.setLatitude("20");
+        trashVO.setLongitude("20");
         trashVO.setPhoto_url("");
         trashVO.setSize(0);
         trashVO.setReport(false);
@@ -122,8 +122,8 @@ public class TrashServiceImplTest {
         trashVO.setTitle("Test Trash");
         trashVO.setStatus(0);
         trashVO.setDistance(10);
-        trashVO.setLatitude(20);
-        trashVO.setLongitude(20);
+        trashVO.setLatitude("20");
+        trashVO.setLongitude("20");
         trashVO.setPhoto_url("");
         trashVO.setSize(0);
         trashVO.setReport(false);
