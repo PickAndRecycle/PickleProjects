@@ -16,8 +16,8 @@ public class TrashVO extends BaseVO {
     private String description;
     private int distance;
     private String photo_url;
-    private int latitude;
-    private int longitude;
+    private String latitude;
+    private String longitude;
     private boolean report;
     private String title;
     private String trash_condition;
@@ -31,8 +31,8 @@ public class TrashVO extends BaseVO {
         this.setThumbnailUrl("");
         this.setDescription("");
         this.setDistance(0);
-        this.setLatitude(0);
-        this.setLongitude(0);
+        this.setLatitude("");
+        this.setLongitude("");
         this.setPhoto_url("");
         this.setReport(false);
         this.setSize(0);
@@ -95,19 +95,19 @@ public class TrashVO extends BaseVO {
         this.photo_url = photo_url;
     }
 
-    public int getLatitude(){
+    public String getLatitude(){
         return latitude;
     }
 
-    public void setLatitude(int latitude){
+    public void setLatitude(String latitude){
         this.latitude = latitude;
     }
 
-    public int getLongitude(){
+    public String getLongitude(){
         return longitude;
     }
 
-    public void setLongitude(int longitude){
+    public void setLongitude(String longitude){
         this.longitude = longitude;
     }
 

@@ -35,12 +35,19 @@ public class Trash extends Base {
     @Column(name = "PHOTO_URL")
     private String photo_url;
 
+    @Column(name = "LATITUDE", length = 20)
+    private String latitude;
+
+    @Column(name = "LONGITUDE", length = 20)
+    private String longitude;
+
+/*
     @Column(name = "LATITUDE", precision = 4, scale = 10)
     private int latitude;
 
     @Column(name = "LONGITUDE", precision = 4, scale = 10)
     private int longitude;
-
+*/
     @Column(name = "REPORT")
     private boolean report;
 
@@ -111,19 +118,19 @@ public class Trash extends Base {
         this.photo_url = photo_url;
     }
 
-    public int getLatitude(){
+    public String getLatitude(){
         return latitude;
     }
 
-    public void setLatitude(int latitude){
+    public void setLatitude(String latitude){
         this.latitude = latitude;
     }
 
-    public int getLongitude(){
+    public String getLongitude(){
         return longitude;
     }
 
-    public void setLongitude(int longitude){
+    public void setLongitude(String longitude){
         this.longitude = longitude;
     }
 
