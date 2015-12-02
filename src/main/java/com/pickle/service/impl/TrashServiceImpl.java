@@ -92,7 +92,7 @@ public class TrashServiceImpl implements TrashService{
 
         List<String> url = sendToServer(file);
         trash.setPhoto_url(url.get(0));
-        trash.setThumbnailUrl(url.get(1));
+        //trash.setThumbnailUrl(url.get(1));
 
         trashRepository.save(trash);
 
@@ -113,20 +113,18 @@ public class TrashServiceImpl implements TrashService{
                 originalFilename.replaceAll("/s", "_");
 
         String fileName = RandomStringUtils.randomNumeric(8) + "_" + destFilename;
-        String fileName2 = RandomStringUtils.randomNumeric(8) + "_" + destFilename;
+        //String fileName2 = RandomStringUtils.randomNumeric(8) + "_" + destFilename;
         File destinationFile = new File(path + "/" + fileName);
-        File destinationFile2 = new File(path + "/" + fileName2);
+        //File destinationFile2 = new File(path + "/" + fileName2);
 
         byte[] bytes = sourceFile.getBytes();
-        InputStream in = new ByteArrayInputStream(bytes);
-        BufferedImage bImageFromConvert = ImageIO.read(in);
-        BufferedImage thumbImg = Scalr.resize(bImageFromConvert, Scalr.Method.QUALITY, Scalr.Mode.AUTOMATIC,
-                50,
-                50, Scalr.OP_ANTIALIAS);
+        //InputStream in = new ByteArrayInputStream(bytes);
+        //BufferedImage bImageFromConvert = ImageIO.read(in);
+        //BufferedImage thumbImg = Scalr.resize(bImageFromConvert, Scalr.Method.QUALITY, Scalr.Mode.AUTOMATIC, 50, 50, Scalr.OP_ANTIALIAS);
 
         BufferedOutputStream stream =
                 new BufferedOutputStream(new FileOutputStream(destinationFile));
-        ImageIO.write(thumbImg,"jpg",destinationFile2);
+        //ImageIO.write(thumbImg,"jpg",destinationFile2);
         stream.write(bytes);
         stream.close();
 
@@ -135,7 +133,7 @@ public class TrashServiceImpl implements TrashService{
 //        sourceFile.transferTo(destinationFile);
         List destination = new ArrayList<String>();
         destination.add("http://104.155.237.238/pic/trashImages/" + fileName);
-        destination.add("http://104.155.237.238/pic/trashImages/" + fileName2);
+        //destination.add("http://104.155.237.238/pic/trashImages/" + fileName2);
         return destination;
 
         //return destinationFile.getAbsolutePath().replace("/home/ubuntu/pickle-core/trashImages", "");

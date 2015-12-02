@@ -29,8 +29,8 @@ public class Trash extends Base {
     @Column(name = "DESCRIPTION", length = 1000)
     private String description;
 
-    @Column(name = "DISTANCE")
-    private int distance;
+    @Column(name = "PICKERUSERNAME")
+    private String pickerUsername;
 
     @Column(name = "PHOTO_URL")
     private String photo_url;
@@ -60,14 +60,12 @@ public class Trash extends Base {
     @Column(name = "SIZE")
     private int size;
 
-    @Column(name = "THUMBNAILURL")
-    private String thumbnailUrl;
 
     @PrePersist
     public void prePersist(){
         super.prePersist();
         this.status = 0;
-
+        this.pickerUsername = "";
     }
 
     public String getCategories(){
@@ -102,12 +100,12 @@ public class Trash extends Base {
         this.description = description;
     }
 
-    public int getDistance(){
-        return distance;
+    public String getPickerUsername(){
+        return pickerUsername;
     }
 
-    public void setDistance(int distance){
-        this.distance = distance;
+    public void setPickerUsername(String pickerUsername){
+        this.pickerUsername = pickerUsername;
     }
 
     public String getPhoto_url(){
@@ -166,13 +164,6 @@ public class Trash extends Base {
         this.size = size;
     }
 
-    public String getThumbnailUrl() {
-        return thumbnailUrl;
-    }
-
-    public void setThumbnailUrl(String thumbnailUrl) {
-        this.thumbnailUrl = thumbnailUrl;
-    }
 
     @Override
     public String toString() {
@@ -181,7 +172,7 @@ public class Trash extends Base {
         sb.append(", username='").append(username).append('\'');
         sb.append(", status=").append(status);
         sb.append(", description='").append(description).append('\'');
-        sb.append(", distance=").append(distance);
+        sb.append(", picker username=").append(pickerUsername);
         sb.append(", photo url='").append(photo_url).append('\'');
         sb.append(", latitude=").append(latitude);
         sb.append(", longitude=").append(longitude);
@@ -189,7 +180,6 @@ public class Trash extends Base {
         sb.append(", title='").append(title).append('\'');
         sb.append(", trash_condition='").append(trash_condition).append('\'');
         sb.append(", size='").append(size);
-        sb.append(", thumbnail url='").append(thumbnailUrl).append('\'');
         return sb.toString();
     }
 }

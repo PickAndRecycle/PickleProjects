@@ -41,7 +41,7 @@ public class TrashVOTest {
         trash.setDescription(desc);
         assertEquals(desc,trash.getDescription());
     }
-
+/*
     @Test
     public void testDistance() throws Exception {
         TrashVO trash = new TrashVO();
@@ -49,7 +49,7 @@ public class TrashVOTest {
         trash.setDistance(distance);
         assertEquals(distance,trash.getDistance());
     }
-
+*/
     @Test
     public void testReport() throws Exception {
         TrashVO trash = new TrashVO();

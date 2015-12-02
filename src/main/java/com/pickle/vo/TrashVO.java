@@ -14,7 +14,7 @@ public class TrashVO extends BaseVO {
     private String username;
     private int status;
     private String description;
-    private int distance;
+    private String pickerUsername;
     private String photo_url;
     private String latitude;
     private String longitude;
@@ -22,15 +22,13 @@ public class TrashVO extends BaseVO {
     private String title;
     private String trash_condition;
     private int size;
-    private String thumbnailUrl;
 
     public TrashVO(){
         this.setId("");
         this.setUsername("");
         this.setCategories("");
-        this.setThumbnailUrl("");
         this.setDescription("");
-        this.setDistance(0);
+        this.setPickerUsername("");
         this.setLatitude("");
         this.setLongitude("");
         this.setPhoto_url("");
@@ -79,12 +77,12 @@ public class TrashVO extends BaseVO {
         this.description = description;
     }
 
-    public int getDistance(){
-        return distance;
+    public String getpickerUsername(){
+        return pickerUsername;
     }
 
-    public void setDistance(int distance){
-        this.distance = distance;
+    public void setPickerUsername(String pickerUsername){
+        this.pickerUsername = pickerUsername;
     }
 
     public String getPhoto_url(){
@@ -143,13 +141,6 @@ public class TrashVO extends BaseVO {
         this.size = size;
     }
 
-    public String getThumbnailUrl() {
-        return thumbnailUrl;
-    }
-
-    public void setThumbnailUrl(String thumbnailUrl) {
-        this.thumbnailUrl = thumbnailUrl;
-    }
 
     @Override
     public String toString() {
@@ -158,7 +149,7 @@ public class TrashVO extends BaseVO {
         sb.append(", username='").append(username).append('\'');
         sb.append(", status=").append(status);
         sb.append(", description='").append(description).append('\'');
-        sb.append(", distance=").append(distance);
+        sb.append(", pickerUsername=").append(pickerUsername);
         sb.append(", photo url='").append(photo_url).append('\'');
         sb.append(", latitude=").append(latitude);
         sb.append(", longitude=").append(longitude);
@@ -166,7 +157,6 @@ public class TrashVO extends BaseVO {
         sb.append(", title='").append(title).append('\'');
         sb.append(", trash_condition='").append(trash_condition).append('\'');
         sb.append(", size='").append(size);
-        sb.append(", thumbnail url='").append(thumbnailUrl).append('\'');
         return sb.toString();
     }
 }

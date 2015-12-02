@@ -32,14 +32,13 @@ public class TrashServiceImplTest {
 
         TrashVO trashVO = new TrashVO();
         trashVO.setId("123");
-        trashVO.setThumbnailUrl("");
         trashVO.setCategories("Unused Goods");
         trashVO.setTrash_condition("Good");
         trashVO.setUsername("Yanuar");
         trashVO.setTitle("Test Trash");
         trashVO.setStatus(0);
         trashVO.setDescription("Test Description");
-        trashVO.setDistance(10);
+        trashVO.setPickerUsername("Tsabita");
         trashVO.setLatitude("20");
         trashVO.setLongitude("20");
         trashVO.setPhoto_url("");
@@ -63,14 +62,13 @@ public class TrashServiceImplTest {
     public void testFindById() throws Exception {
         TrashVO trashVO = new TrashVO();
         trashVO.setId("123");
-        trashVO.setThumbnailUrl("");
         trashVO.setCategories("Unused Goods");
         trashVO.setTrash_condition("Good");
         trashVO.setUsername("Yanuar");
         trashVO.setTitle("Test Trash");
         trashVO.setStatus(0);
         trashVO.setDescription("Test Description");
-        trashVO.setDistance(10);
+        trashVO.setPickerUsername("Tsabita");
         trashVO.setLatitude("20");
         trashVO.setLongitude("20");
         trashVO.setPhoto_url("");
@@ -88,14 +86,13 @@ public class TrashServiceImplTest {
 
         TrashVO trashVO = new TrashVO();
         trashVO.setId("123");
-        trashVO.setThumbnailUrl("");
         trashVO.setCategories("Unused Goods");
         trashVO.setTrash_condition("Good");
         trashVO.setUsername("Yanuar");
         trashVO.setTitle("Test Trash");
         trashVO.setStatus(0);
         trashVO.setDescription("Test Description");
-        trashVO.setDistance(10);
+        trashVO.setPickerUsername("Tsabita");
         trashVO.setLatitude("20");
         trashVO.setLongitude("20");
         trashVO.setPhoto_url("");
@@ -116,12 +113,11 @@ public class TrashServiceImplTest {
     public void testFindAll() throws Exception {
 
         TrashVO trashVO = new TrashVO();
-        trashVO.setThumbnailUrl("");
         trashVO.setCategories("Unused Goods");
         trashVO.setTrash_condition("Good");
         trashVO.setTitle("Test Trash");
         trashVO.setStatus(0);
-        trashVO.setDistance(10);
+        trashVO.setPickerUsername("Tsabita");
         trashVO.setLatitude("20");
         trashVO.setLongitude("20");
         trashVO.setPhoto_url("");

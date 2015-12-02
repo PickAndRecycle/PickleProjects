@@ -26,8 +26,8 @@ public class TrashVoConverter implements IBaseVoConverter<TrashVO, Trash> {
         baseVoConverter.transferVOToModel(vo, model);
 
         ExtendedSpringBeanUtil.copySpecificProperties(vo, model,
-                new String[]{"categories", "username", "status", "description", "distance", "photo_url", "latitude", "longitude",
-                "report", "title", "trash_condition", "size", "thumbnailUrl;"});
+                new String[]{"categories", "username", "status", "description", "pickerUsername", "photo_url", "latitude", "longitude",
+                "report", "title", "trash_condition", "size"});
         /*
         ExtendedSpringBeanUtil.copySpecificProperties(vo, model,
                 new String[]{"categories", "username", "status", "description", "photo_url", "title", "trash_condition"});*/
@@ -55,8 +55,8 @@ public class TrashVoConverter implements IBaseVoConverter<TrashVO, Trash> {
         baseVoConverter.transferModelToVO(model, vo);
 
         ExtendedSpringBeanUtil.copySpecificProperties(model, vo,
-                new String[]{"categories", "username", "status", "description", "distance", "photo_url", "latitude", "longitude",
-                        "report", "title", "trash_condition", "size", "thumbnailUrl"});
+                new String[]{"categories", "username", "status", "description", "pickerUsername", "photo_url", "latitude", "longitude",
+                        "report", "title", "trash_condition", "size"});
         /*
         ExtendedSpringBeanUtil.copySpecificProperties(vo, model,
                 new String[]{"categories", "username","username", "description", "photo_url", "title", "trash_condition"});
