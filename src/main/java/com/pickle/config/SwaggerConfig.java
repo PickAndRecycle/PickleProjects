@@ -48,7 +48,9 @@ public class SwaggerConfig {
                 .includePatterns(
                         "/trash.*",
                         "/account.*",
-                        "/article.*"
+                        "/article.*",
+                        "/notification.*",
+                        "/trashnotification"
                 )
                 .authorizationTypes(authorizationTypes())
                 .authorizationContext(authorizationContext())

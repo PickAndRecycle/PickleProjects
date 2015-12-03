@@ -4,10 +4,17 @@ import com.pickle.converter.TrashVoConverter;
 import com.pickle.exception.ServiceException;
 import com.pickle.persistence.domain.Trash;
 import com.pickle.persistence.repository.TrashRepository;
+import com.pickle.service.NotificationService;
 import com.pickle.service.TrashService;
+import com.pickle.vo.NotificationVO;
 import com.pickle.vo.TrashVO;
 import org.apache.commons.lang.RandomStringUtils;
 import org.apache.commons.lang.StringUtils;
+import org.apache.http.HttpResponse;
+import org.apache.http.client.HttpClient;
+import org.apache.http.client.methods.HttpPost;
+import org.apache.http.entity.StringEntity;
+import org.apache.http.impl.client.DefaultHttpClient;
 import org.imgscalr.Scalr;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -41,6 +48,8 @@ public class TrashServiceImpl implements TrashService{
     @Autowired
     TrashRepository trashRepository;
 
+    @Autowired
+    NotificationService notificationService;
 
     @Override
     public TrashVO add(TrashVO vo) {
@@ -174,6 +183,42 @@ public class TrashServiceImpl implements TrashService{
         }
 
         return trashVoConverter.transferModelToVO(trash, null);
+    }
+
+    @Override
+    public TrashVO updateWithNotification(String s, TrashVO vo) throws IOException {
+
+        String username = vo.getUsername();
+        String pickerUSername = vo.getpickerUsername();
+
+        List<String> notificationResult = new ArrayList<String>();
+
+        Collection<NotificationVO> notificationVOs = notificationService.findAll();
+
+        for (NotificationVO notif : notificationVOs){
+            if(notif.getUsername().equals(username)){
+                notificationResult.add(notif.getToken());
+            }
+        }
+
+
+        HttpClient httpclient = new DefaultHttpClient();
+
+        String json="{ \"data\": {" +
+                "    \"message\": \"Your Trash has been picked!\"," +
+                "  }," +
+                "  \"registration_ids\": " + notificationResult.toString() +
+                "}";
+
+        HttpPost httpost = new HttpPost("https://android.googleapis.com/gcm/send");
+        httpost.setHeader("Content-Type", "application/json");
+        httpost.setHeader("Authorization","AIzaSyBLU6JlaHassdkGevTIxJ_7Y3jngNrn2SU");
+
+        httpost.setEntity(new StringEntity(json));
+        HttpResponse response = httpclient.execute(httpost);
+
+        return update(s,vo);
+
     }
 }
 
