@@ -166,7 +166,21 @@ public class TrashServiceImpl implements TrashService{
 
     @Override
     public Boolean delete(String s) {
-       return null;
+        Trash trash = trashRepository.findBySecureId(s);
+
+        if (trash == null) {
+            throw new ServiceException("trash not found: " + s);
+        }
+
+        Integer id = trash.getId();
+
+        trashRepository.delete(id);
+
+        if (!trashRepository.exists(id)) {
+            return Boolean.TRUE;
+        } else {
+            return Boolean.FALSE;
+        }
     }
 
     @Override
@@ -214,8 +228,18 @@ public class TrashServiceImpl implements TrashService{
 
         HttpPost httpost = new HttpPost("https://android.googleapis.com/gcm/send");
         httpost.setHeader("Content-Type", "application/json");
-        httpost.setHeader("Authorization","AIzaSyBLU6JlaHassdkGevTIxJ_7Y3jngNrn2SU");
+        httpost.setHeader("Authorization","key=AIzaSyBLU6JlaHassdkGevTIxJ_7Y3jngNrn2SU");
 
+        /*
+        String json="{ \"to\": \"" + "e3M2lGd2Aio:APA91bEfU-PZcrQrNrGZDrw3oXqlNKixX5pH8706qRWeQ9XUCnUDl3i1ZpFokbslsjBuU0u0lg89DRXOzoUAZuZz7TRQnKtxv4jU6izbDs0JVqpAu7XXA5w83ilJnB3fjCdM9ZbAlVjR" + "\"," +
+                "\"data\": {" +
+                "    \"message\": \"Your Trash has been picked!\"," +
+                "  }," +  "}";
+
+        HttpPost httpost = new HttpPost("https://android.googleapis.com/gcm/send");
+        httpost.setHeader("Content-Type", "application/json");
+        httpost.setHeader("Authorization","key=AIzaSyBLU6JlaHassdkGevTIxJ_7Y3jngNrn2SU");
+        */
         httpost.setEntity(new StringEntity(json));
         CloseableHttpResponse response = httpclient.execute(httpost);
 

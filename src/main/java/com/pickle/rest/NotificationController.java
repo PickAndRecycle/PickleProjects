@@ -45,5 +45,16 @@ public class NotificationController {
         return handler.getResult();
     }
 
+    @RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
+    @ResponseBody
+    public ResponseEntity<ResultVO> delete(@PathVariable("id") String secureId) {
+        AbstractBaseController.AbstractRequestHandler handler = new AbstractBaseController.AbstractRequestHandler() {
+            @Override
+            public Object processRequest() {
+                return notificationService.delete(secureId);
+            }
+        };
+        return handler.getResult();
+    }
 
 }

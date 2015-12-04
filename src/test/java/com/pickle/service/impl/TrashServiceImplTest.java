@@ -12,6 +12,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
+import java.io.IOException;
 import java.math.BigDecimal;
 import java.util.Collection;
 
@@ -133,10 +134,34 @@ public class TrashServiceImplTest {
 
         System.out.print(collection.toString());
 
-        assertEquals(2,collection.size());
+        assertEquals(1,collection.size());
     }
 
+    @Test
+    public void testUpdateWithNotification() throws IOException {
+        TrashVO trashVO = new TrashVO();
+        trashVO.setId("123");
+        trashVO.setCategories("Unused Goods");
+        trashVO.setTrash_condition("Good");
+        trashVO.setUsername("Yanuar");
+        trashVO.setTitle("Test Trash");
+        trashVO.setStatus(0);
+        trashVO.setDescription("Test Description");
+        trashVO.setPickerUsername("Tsabita");
+        trashVO.setLatitude("20");
+        trashVO.setLongitude("20");
+        trashVO.setPhoto_url("");
+        trashVO.setSize(0);
+        trashVO.setReport(false);
 
+        TrashVO tempVo = trashService.add(trashVO);
+
+        trashVO.setDescription("New Description");
+
+        TrashVO resultVO = trashService.updateWithNotification(tempVo.getId(), trashVO);
+
+        assertEquals(resultVO.getDescription(),"New Description");
+    }
 
 
 

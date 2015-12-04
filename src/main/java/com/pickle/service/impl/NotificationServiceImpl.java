@@ -1,6 +1,7 @@
 package com.pickle.service.impl;
 
 import com.pickle.converter.NotificationVOConverter;
+import com.pickle.exception.ServiceException;
 import com.pickle.persistence.domain.Notification;
 import com.pickle.persistence.repository.NotificationRepository;
 import com.pickle.service.NotificationService;
@@ -73,6 +74,20 @@ public class NotificationServiceImpl implements NotificationService{
 
     @Override
     public Boolean delete(String s) {
-        return null;
+        Notification notification = notificationRepository.findBySecureId(s);
+
+        if (notification == null) {
+            throw new ServiceException("notification not found: " + s);
+        }
+
+        Integer id = notification.getId();
+
+        notificationRepository.delete(id);
+
+        if (!notificationRepository.exists(id)) {
+            return Boolean.TRUE;
+        } else {
+            return Boolean.FALSE;
+        }
     }
 }

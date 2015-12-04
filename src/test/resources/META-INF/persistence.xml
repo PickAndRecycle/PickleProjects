@@ -10,6 +10,7 @@
         <class>com.pickle.persistence.domain.Trash</class>
         <class>com.pickle.persistence.domain.Account</class>
         <class>com.pickle.persistence.domain.Article</class>
+        <class>com.pickle.persistence.domain.Notification</class>
         <!--<class>com.pickle.persistence.domain.Sample</class>-->
         <exclude-unlisted-classes>true</exclude-unlisted-classes>
 
