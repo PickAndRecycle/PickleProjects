@@ -5,6 +5,10 @@ package com.pickle.vo;
  */
 public class NotificationVO extends BaseVO{
 
+    public NotificationVO(){
+
+    }
+
     private String token;
     private String username;
 

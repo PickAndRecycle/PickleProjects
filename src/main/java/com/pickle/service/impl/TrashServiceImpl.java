@@ -221,28 +221,20 @@ public class TrashServiceImpl implements TrashService{
 
         CloseableHttpClient httpclient = HttpClients.createDefault();
 
-        String json="{ \"to\": \"" + notificationResult.get(0) + "\"," +
-                "\"data\": {" +
-                "    \"message\": \"Your Trash has been picked!\"," +
-                "  }," +  "}";
 
-        HttpPost httpost = new HttpPost("https://android.googleapis.com/gcm/send");
-        httpost.setHeader("Content-Type", "application/json");
-        httpost.setHeader("Authorization","key=AIzaSyBLU6JlaHassdkGevTIxJ_7Y3jngNrn2SU");
+        if(notificationResult.size()>0) {
+            String json = "{ \"registration_ids\": \"" + notificationResult.toString() + "\"," +
+                    "\"data\": {" +
+                    "    \"message\": \"Your Trash has been picked!\"," +
+                    "  }," + "}";
 
-        /*
-        String json="{ \"to\": \"" + "e3M2lGd2Aio:APA91bEfU-PZcrQrNrGZDrw3oXqlNKixX5pH8706qRWeQ9XUCnUDl3i1ZpFokbslsjBuU0u0lg89DRXOzoUAZuZz7TRQnKtxv4jU6izbDs0JVqpAu7XXA5w83ilJnB3fjCdM9ZbAlVjR" + "\"," +
-                "\"data\": {" +
-                "    \"message\": \"Your Trash has been picked!\"," +
-                "  }," +  "}";
+            HttpPost httpost = new HttpPost("https://android.googleapis.com/gcm/send");
+            httpost.setHeader("Content-Type", "application/json");
+            httpost.setHeader("Authorization", "key=AIzaSyBLU6JlaHassdkGevTIxJ_7Y3jngNrn2SU");
 
-        HttpPost httpost = new HttpPost("https://android.googleapis.com/gcm/send");
-        httpost.setHeader("Content-Type", "application/json");
-        httpost.setHeader("Authorization","key=AIzaSyBLU6JlaHassdkGevTIxJ_7Y3jngNrn2SU");
-        */
-        httpost.setEntity(new StringEntity(json));
-        CloseableHttpResponse response = httpclient.execute(httpost);
-
+            httpost.setEntity(new StringEntity(json));
+            CloseableHttpResponse response = httpclient.execute(httpost);
+        }
         return update(s,vo);
 
     }
