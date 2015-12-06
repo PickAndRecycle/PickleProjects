@@ -73,8 +73,8 @@ public class TrashServiceImpl implements TrashService{
     public static String createPhotoDirectory(){
 
 //        try{
-        File photoDirectory = new File("/home/ubuntu/pickle-core/");
-        //File photoDirectory = new File("Users/dedensukarna/");
+        //File photoDirectory = new File("/home/ubuntu/pickle-core/");
+        File photoDirectory = new File("Users/dedensukarna/");
         logger.info("photoBaseDir = {}", new Object[]{ photoDirectory });
 
         File newPhotoDirectory = new File(photoDirectory, "trashImages");
@@ -223,7 +223,7 @@ public class TrashServiceImpl implements TrashService{
 
 
         if(notificationResult.size()>0) {
-            String json = "{ \"registration_ids\": \"" + notificationResult.toString() + "\"," +
+            String json = "{ \"to\": \"" + notificationResult.get(0) + "\"," +
                     "\"data\": {" +
                     "    \"message\": \"Your Trash has been picked!\"," +
                     "  }," + "}";
