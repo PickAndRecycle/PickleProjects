@@ -25,23 +25,10 @@ public class Account extends Base {
     private String email;
     @Column(name = "PHONE_NUMBER")
     private String phone_number;
-    @Column(name = "PHOTO_URL")
-    private String photo_url;
-    @Column(name = "POINT")
-    private int point;
 
     @PrePersist
     public void prePersist(){
         super.prePersist();
-        this.point = 0;
-    }
-
-    public String getPhoto_url() {
-        return photo_url;
-    }
-
-    public void setPhoto_url(String photo_url) {
-        this.photo_url = photo_url;
     }
 
     public String getUsername() {
@@ -72,14 +59,6 @@ public class Account extends Base {
         return phone_number;
     }
 
-    public int getPoint() {
-        return point;
-    }
-
-    public void setPoint(int point) {
-        this.point = point;
-    }
-
     public void setPhone_number(String phone_number) {
         this.phone_number = phone_number;
     }
@@ -89,8 +68,6 @@ public class Account extends Base {
         sb.append(", password='").append(password).append('\'');
         sb.append(", email='").append(email).append('\'');
         sb.append(", phone number='").append(phone_number).append('\'');
-        sb.append(", photo url='").append(photo_url).append('\'');
-        sb.append(", point=").append(point);
         return sb.toString();
     }
 }

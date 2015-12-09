@@ -42,11 +42,4 @@ public class AccountVOTest {
         assertEquals(hakeemNum,account.getPhone_number());
     }
 
-    @Test
-    public void testPoint() throws Exception {
-        AccountVO account = new AccountVO();
-        int hakeemPoint = 7;
-        account.setPoint(hakeemPoint);
-        assertEquals(hakeemPoint,account.getPoint());
-    }
 }
