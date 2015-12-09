@@ -223,17 +223,19 @@ public class TrashServiceImpl implements TrashService{
 
 
         if(notificationResult.size()>0) {
-            String json = "{ \"to\": \"" + notificationResult.get(0) + "\"," +
-                    "\"data\": {" +
-                    "    \"message\": \"Your Trash has been picked!\"," +
-                    "  }," + "}";
+            for(int i = 0;i < notificationResult.size();i++){
+                String json = "{ \"to\": \"" + notificationResult.get(i) + "\"," +
+                        "\"data\": {" +
+                        "    \"message\": \"Your Trash has been picked!\"," +
+                        "  }," + "}";
 
-            HttpPost httpost = new HttpPost("https://android.googleapis.com/gcm/send");
-            httpost.setHeader("Content-Type", "application/json");
-            httpost.setHeader("Authorization", "key=AIzaSyBLU6JlaHassdkGevTIxJ_7Y3jngNrn2SU");
+                HttpPost httpost = new HttpPost("https://android.googleapis.com/gcm/send");
+                httpost.setHeader("Content-Type", "application/json");
+                httpost.setHeader("Authorization", "key=AIzaSyBLU6JlaHassdkGevTIxJ_7Y3jngNrn2SU");
 
-            httpost.setEntity(new StringEntity(json));
-            CloseableHttpResponse response = httpclient.execute(httpost);
+                httpost.setEntity(new StringEntity(json));
+                CloseableHttpResponse response = httpclient.execute(httpost);
+            }
         }
         return update(s,vo);
 

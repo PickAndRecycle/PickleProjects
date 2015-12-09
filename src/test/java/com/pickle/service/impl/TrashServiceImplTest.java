@@ -168,11 +168,39 @@ public class TrashServiceImplTest {
 
         NotificationVO notifVO = notificationService.add(notificationVO);
 
+        notificationVO.setToken("fTpUZosOxnw:APA91bHcHX52XFkTOQZZJX_Fh7608iNZDfxDXMF5VpH_i_BHQJLmfah_xO0C9m6tCpReO1kfB0AB3iCIIjLh_fnrJ2g1lfPJHvGbJW9BVCZmh2CB6j1vQLzmj6U0qIWS1pmvBwjYFNPD");
+
+        NotificationVO notifVO2 = notificationService.add(notificationVO);
+
         trashVO.setDescription("New Description");
 
         TrashVO resultVO = trashService.updateWithNotification(tempVo.getId(), trashVO);
 
         assertEquals(resultVO.getDescription(),"New Description");
+    }
+
+    @Test
+    public void testDelete(){
+        TrashVO trashVO = new TrashVO();
+        trashVO.setId("123");
+        trashVO.setCategories("Unused Goods");
+        trashVO.setTrash_condition("Good");
+        trashVO.setUsername("Yanuar");
+        trashVO.setTitle("Test Trash");
+        trashVO.setStatus(0);
+        trashVO.setDescription("Test Description");
+        trashVO.setPickerUsername("Tsabita");
+        trashVO.setLatitude("20");
+        trashVO.setLongitude("20");
+        trashVO.setPhoto_url("");
+        trashVO.setSize(0);
+        trashVO.setReport(false);
+
+        TrashVO tempVo = trashService.add(trashVO);
+
+        boolean result = trashService.delete(tempVo.getId());
+
+        assertEquals(true, result);
     }
 
 
