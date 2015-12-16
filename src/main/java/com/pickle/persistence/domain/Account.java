@@ -69,7 +69,7 @@ public class Account extends Base {
         return google;
     }
 
-    public void setGoogle(Boolean phone_number) {
+    public void setGoogle(Boolean google) {
         this.google = google;
     }
 
