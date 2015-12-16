@@ -25,6 +25,8 @@ public class Account extends Base {
     private String email;
     @Column(name = "PHONE_NUMBER")
     private String phone_number;
+    @Column(name = "GOOGLE")
+    private Boolean google;
 
     @PrePersist
     public void prePersist(){
@@ -62,12 +64,24 @@ public class Account extends Base {
     public void setPhone_number(String phone_number) {
         this.phone_number = phone_number;
     }
+
+    public Boolean getGoogle() {
+        return google;
+    }
+
+    public void setGoogle(Boolean phone_number) {
+        this.google = google;
+    }
+
+
+
     public String toString(){
         StringBuffer sb = new StringBuffer("Account{");
         sb.append("username='").append(username).append('\'');
         sb.append(", password='").append(password).append('\'');
         sb.append(", email='").append(email).append('\'');
         sb.append(", phone number='").append(phone_number).append('\'');
+        sb.append(", google='").append(google).append('\'');
         return sb.toString();
     }
 }
