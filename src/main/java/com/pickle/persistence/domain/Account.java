@@ -19,7 +19,7 @@ import javax.persistence.Table;
 public class Account extends Base {
     @Column(name = "USERNAME")
     private String username;
-    @Column(name = "PASSWORD")
+    @Column(name = "PASSWORD", length = 1500)
     private String password;
     @Column(name = "EMAIL")
     private String email;

@@ -22,7 +22,7 @@ public class Article extends Base {
     @Column(name = "PHOTO_URL")
     private String photo_url;
 
-    @Column(name = "CONTENT")
+    @Column(name = "CONTENT",length = 10000)
     private String content;
 
     @PrePersist
